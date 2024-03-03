@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>迟然</title>
+  <icon>https://www.gravatar.com/avatar/1492c2c42ddd190f8426a8b5b2821427</icon>
+  <subtitle>世上的路有很多条.</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2024-03-03T14:10:44.396Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>迟然</name>
+    <email>CheerfulChen5@gmail.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些自动登录方法</title>
+    <link href="http://example.com/2024/03/03/%E4%B8%80%E4%BA%9B%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E6%96%B9%E6%B3%95/"/>
+    <id>http://example.com/2024/03/03/%E4%B8%80%E4%BA%9B%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E6%96%B9%E6%B3%95/</id>
+    <published>2024-03-03T09:46:26.000Z</published>
+    <updated>2024-03-03T14:10:44.396Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="自动登录"><a href="#自动登录" class="headerlink" title="自动登录"></a>自动登录</h2><p>上文说道，现在的惠湖通需要<strong>不定时</strong>打开登录页来登录，所以为何不使用Python来让其<strong>自动登录</strong>呢？<br>首先，我们需要引入<strong>Selenium库</strong>。Selenium是一个用于<strong>自动化Web浏览器</strong>操作的工具。它提供了一组工具和库，使开发人员能够通过编程方式控制浏览器的行为，从而执行各种任务，如<strong>网页测试</strong>、<strong>数据抓取</strong>和<strong>自动化任务</strong>等。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.wait <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br></pre></td></tr></table></figure><p>我使用了<strong>火狐浏览器</strong>，其可以直接通过Selenium调用，无需下载对应的驱动文件。并且设置页面加载超时时间为60秒。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.set_page_load_timeout(<span class="number">60</span>)</span><br></pre></td></tr></table></figure><p>接下来就是打开网页，定位输入框，以及点击按钮的操作。大部分主流浏览器都具有开发人员工具功能（Fn+F12），通过选择<strong>元素检查</strong>可以很容易地找到元素的ID，只需要将账号密码填入即可。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">driver.get(<span class="string">&#x27;http://10.10.16.12/portal/&#x27;</span>)</span><br><span class="line">wait = WebDriverWait(driver, <span class="number">10</span>)</span><br><span class="line">username = driver.find_element(By.ID,<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">username.send_keys(<span class="string">&#x27;188****0000&#x27;</span>)</span><br><span class="line">password = driver.find_element(By.ID,<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">password.send_keys(<span class="string">&#x27;123321&#x27;</span>)</span><br></pre></td></tr></table></figure><p>相同的，按钮也可以使用这样的方法来定位。但是惠湖通界面上的似乎并不是普通的按钮，所以我使用了<strong>XPATH</strong>来定位并点击。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">login_button = driver.find_element(By.XPATH,<span class="string">&quot;//*[@id=&#x27;pcLoginCont&#x27;]/div/div[1]/div[1]/img&quot;</span>)</span><br><span class="line">login_button.click()</span><br></pre></td></tr></table></figure><p>如此，一个自动登录程序便<strong>完成</strong>了。</p><h2 id="以下内容并未测试"><a href="#以下内容并未测试" class="headerlink" title="以下内容并未测试"></a>以下内容并未测试</h2><p>但是这个程序仍需我们手动执行，我们是否可以让其<strong>定时运行</strong>呢？<br>答案是肯定的，但登录后的界面和未登录时的不一样，会导致找不到输入框和按钮。<br>于是，我觉得可以让程序自己<strong>先登出，再登录</strong>。（以下内容均并未实际运行过，只是提供思路，不考虑稳定性）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.set_page_load_timeout(<span class="number">60</span>)</span><br><span class="line"></span><br><span class="line">driver.get(<span class="string">&#x27;http://10.10.16.12/portal/&#x27;</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    login_button1 = driver.find_element(By.ID,<span class="string">&quot;ispLogoutBtn&quot;</span>)</span><br><span class="line">    login_button1.click()</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    wait = WebDriverWait(driver, <span class="number">10</span>)</span><br><span class="line">    username = driver.find_element(By.ID,<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">    username.send_keys(<span class="string">&#x27;188****0000&#x27;</span>)</span><br><span class="line">    password = driver.find_element(By.ID,<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">    password.send_keys(<span class="string">&#x27;123321&#x27;</span>)</span><br><span class="line">    login_button2 = driver.find_element(By.XPATH,<span class="string">&quot;//*[@id=&#x27;pcLoginCont&#x27;]/div/div[1]/div[1]/img&quot;</span>)</span><br><span class="line">    login_button2.click()</span><br></pre></td></tr></table></figure><p>如此一来，只要让程序在<strong>凌晨3点</strong>定时运行，就可以实现无感上网了。<br>当然，我们也可以让程序<strong>每隔一个小时</strong>ping三次baidu，如果三次<strong>均失败</strong>，则认定为断网，<strong>运行</strong>自动登录程序。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">ping_baidu</span>():</span><br><span class="line">    <span class="comment"># Ping百度3次</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        response = os.system(<span class="string">&quot;ping -c 1 www.baidu.com&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> response == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Ping 百度成功！&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Ping 百度失败...&quot;</span>)</span><br><span class="line">            time.sleep(<span class="number">5</span>)  <span class="comment"># 等待5秒后重试</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run_program</span>():</span><br><span class="line">    driver = webdriver.Firefox()</span><br><span class="line">    driver.set_page_load_timeout(<span class="number">60</span>)</span><br><span class="line"></span><br><span class="line">    driver.get(<span class="string">&#x27;http://10.10.16.12/portal/&#x27;</span>)</span><br><span class="line">    wait = WebDriverWait(driver, <span class="number">10</span>)</span><br><span class="line">    username = driver.find_element(By.ID, <span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">    username.send_keys(<span class="string">&#x27;188****0000&#x27;</span>)</span><br><span class="line">    password = driver.find_element(By.ID, <span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">    password.send_keys(<span class="string">&#x27;123321&#x27;</span>)</span><br><span class="line">    login_button = driver.find_element(By.XPATH, <span class="string">&quot;//*[@id=&#x27;pcLoginCont&#x27;]/div/div[1]/div[1]/img&quot;</span>)</span><br><span class="line">    login_button.click()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ping_baidu():</span><br><span class="line">            run_program()</span><br><span class="line">        time.sleep(<span class="number">3600</span>)  <span class="comment"># 每隔一个小时执行一次</span></span><br></pre></td></tr></table></figure><p>这个当然也存在<strong>弊端</strong>，运行间隔足足<strong>一个小时</strong>，可能会导致处理<strong>不及时</strong>。</p><h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>这个主意<strong>很久之前</strong>就有了，但是我<strong>没有实际投入运行</strong>。我宿舍里现在是一台笔记本和台式机。笔记本不知道什么时候就自动熄屏了，程序也不知道能不能运行。而台式机会发出灯光以及风扇转动的声音，不方便开一整个晚上。所以最终还是<strong>回归最朴素</strong>的每天登一遍惠湖通咯。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;自动登录&quot;&gt;&lt;a href=&quot;#自动登录&quot; class=&quot;headerlink&quot; title=&quot;自动登录&quot;&gt;&lt;/a&gt;自动登录&lt;/h2&gt;&lt;p&gt;上文说道，现在的惠湖通需要&lt;strong&gt;不定时&lt;/strong&gt;打开登录页来登录，所以为何不使用Python来让其&lt;str</summary>
+      
+    
+    
+    
+    <category term="生活日常" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="杂谈" scheme="http://example.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+    <category term="Python" scheme="http://example.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对于慧湖通宿舍上网的一些拙见</title>
+    <link href="http://example.com/2024/03/03/%E5%AF%B9%E4%BA%8E%E6%85%A7%E6%B9%96%E9%80%9A%E5%AE%BF%E8%88%8D%E4%B8%8A%E7%BD%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8B%99%E8%A7%81/"/>
+    <id>http://example.com/2024/03/03/%E5%AF%B9%E4%BA%8E%E6%85%A7%E6%B9%96%E9%80%9A%E5%AE%BF%E8%88%8D%E4%B8%8A%E7%BD%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8B%99%E8%A7%81/</id>
+    <published>2024-03-03T08:50:32.000Z</published>
+    <updated>2024-03-03T15:00:39.721Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="文缘人才公寓"><a href="#文缘人才公寓" class="headerlink" title="文缘人才公寓"></a>文缘人才公寓</h2><p>本人是22级新生，属于第一批入住文缘人才公寓的。在入住之前就曾听说，新宿舍区需要每个同学办理单独的宽带。也就是说，一间四人间就需要四个光猫，这当然是不可能的。在搬入后得知，不管你是什么运营商，你都需要通过慧湖通的登录界面进行连接，并且同时在线的设备数只能有三个。（前提是用的运营商提供的路由器，或者是根据所谓的“教程”设置后）<img src="https://ooo.0x0.ooo/2024/03/03/OyRqFg.jpg" alt="IMG_3812.JPG"><br>这个教程告诉同学们要<strong>关闭DHCP服务器</strong>，并且网线需要接在<strong>LAN口</strong>。如此一来，你的路由器就<strong>只是充当发射信号的装置</strong>，而<strong>不参与IP地址的分配</strong>等等一系列任务。所有设备的IP地址都是由慧湖通机房来分配，并且能够监控数据以及登录的设备量。</p><h2 id="反抗第一步-拨号上网"><a href="#反抗第一步-拨号上网" class="headerlink" title="反抗第一步-拨号上网"></a>反抗第一步-拨号上网</h2><p>面对这种情况，难道我们学生只能接受现实，去办理电话卡和宽带捆绑的套餐了吗？不！我们要反抗！可以看到慧湖通的这个界面，它很像是<strong>拨号上网</strong>。你需要输入账号密码并选择对应的运营商来登录。那为何不试试让路由器来拨号呢？经过尝试后，这确实是可行的。但不知道是什么原因，拨号的账号需要指定运营商。也就是说在<strong>手机号</strong> + <strong>@CMCC</strong> &#x2F; <strong>@TELECOM</strong>这样的形式（恕我知识浅薄）。</p><figure class="highlight plaintext"><figcaption><span>Example</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">188****0000@CMCC</span><br></pre></td></tr></table></figure><p>如此一来，不仅绕开了设备数量的限制，还获得了更好的网络体验（甚至公网）。</p><h2 id="慧湖通的策略"><a href="#慧湖通的策略" class="headerlink" title="慧湖通的策略"></a>慧湖通的策略</h2><p>但是好景不长。一学年之后，再度开学之时，很多小伙伴发现之前设置的<strong>拨号上网不行了</strong>。让路由器<strong>自动获取IP地址</strong>（保持DHCP服务器打开）虽然会弹出登录界面，但是不登录也可用。这个时候就能意识到，慧湖通在准备干一场大的。我不清楚他们是如何操作的，但是带来的后果就是宽带拨号的方式<strong>无法继续使用</strong>了，真真正正做到了所有数据都需要经过慧湖通。</p><h2 id="反抗第二步-DHCP服务器"><a href="#反抗第二步-DHCP服务器" class="headerlink" title="反抗第二步-DHCP服务器"></a>反抗第二步-DHCP服务器</h2><p>慧湖通这个登录，只要你<strong>断开连接</strong>后就自动给你<strong>下线</strong>。也就是说，只要你断开了Wi-Fi，当你再次连上时就必须重新登录。这就导致了一天内需要登录十几次的状况。还好慧湖通的认证并没有其他学校的那么严格，我们仍然可以将网线接入在<strong>WAN口</strong>，并保持<strong>DHCP服务器打开</strong>状态，让路由器<strong>为下游设备分配IP</strong>。这<strong>解决了连接数量</strong>的限制，但是对于登录账号，我们仍需要在tocken过期后，再次进入登录页面来登录。虽然只需要一次，但是它的不可预测以及手动输入账号密码仍不如之前的拨号上网（并且数据<strong>受慧湖通管控</strong>）。</p><h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>对于网络这方面的内容，我也只是一知半解。但是我认为这种半强行推销校园卡的行为真的不是很好。现在所有的设备都是经过慧湖通网关了，如果想要继续往下限制，肯定是能做到限制三台设备的。如果慧湖通真的要锁死三台，那我估计只能OpenWrt了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;文缘人才公寓&quot;&gt;&lt;a href=&quot;#文缘人才公寓&quot; class=&quot;headerlink&quot; title=&quot;文缘人才公寓&quot;&gt;&lt;/a&gt;文缘人才公寓&lt;/h2&gt;&lt;p&gt;本人是22级新生，属于第一批入住文缘人才公寓的。在入住之前就曾听说，新宿舍区需要每个同学办理单独的宽带。也就</summary>
+      
+    
+    
+    
+    <category term="生活日常" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="杂谈" scheme="http://example.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+    <category term="上网" scheme="http://example.com/tags/%E4%B8%8A%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>属于迟然的Hello World</title>
+    <link href="http://example.com/2024/03/02/%E5%B1%9E%E4%BA%8E%E8%BF%9F%E7%84%B6%E7%9A%84Hello%20World/"/>
+    <id>http://example.com/2024/03/02/%E5%B1%9E%E4%BA%8E%E8%BF%9F%E7%84%B6%E7%9A%84Hello%20World/</id>
+    <published>2024-03-02T09:10:32.000Z</published>
+    <updated>2024-03-03T14:10:56.115Z</updated>
+    
+    <content type="html"><![CDATA[<p>似水流年，花开花落。<br>不知不觉，我已寒窗苦读十四年。但我真的学到了什么东西吗？我不知道。所以我创建了这个blog，为了我当下的学习过程，也想向大家分享我的生活。<br>我并不知道我的未来是什么样的，作为一个p人，我没有也不会去刻意地规划。对于这个blog，当然也是对我自己，就请自然生长吧！</p><h2 id="敬请期待我的小作文"><a href="#敬请期待我的小作文" class="headerlink" title="敬请期待我的小作文"></a>敬请期待我的小作文</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;似水流年，花开花落。&lt;br&gt;不知不觉，我已寒窗苦读十四年。但我真的学到了什么东西吗？我不知道。所以我创建了这个blog，为了我当下的学习过程，也想向大家分享我的生活。&lt;br&gt;我并不知道我的未来是什么样的，作为一个p人，我没有也不会去刻意地规划。对于这个blog，当然也是对我</summary>
+      
+    
+    
+    
+    <category term="生活日常" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="杂谈" scheme="http://example.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+</feed>
