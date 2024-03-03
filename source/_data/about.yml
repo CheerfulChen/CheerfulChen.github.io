@@ -1,0 +1,106 @@
+- class_name: 关于页
+  subtitle: 世上的路有很多条.
+  avatarImg: https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg
+  avatarSkills:
+    left:
+      - 🤖️ 数码科技爱好者
+      - 🔍 分享与热心帮助
+      - 🏠 智能家居小能手
+      - 🔨 设计开发一条龙
+    right:
+      - 专修交互与设计 🤝
+      - 脚踏实地行动派 🏃
+      - 团队小组发动机 🧱
+      - 壮汉人狠话不多 💢
+  name: 迟然
+  description: 是一名 学生、博主  正在学习前后端知识
+  aboutsiteTips:
+    tips: 追求
+    title1: 做好自己
+    title2: 才能更好地
+    word:
+      - 学习
+      - 生活
+      - 程序
+      - 娱乐
+  helloAbout: Hello there!
+  skillsTips:
+    tips: 技能
+    title: 开启创造力
+  careers:
+    tips: 生涯
+    title: 无限进步
+    list:
+      - desc: XJTLUer, Digital Media Technology
+        color: "#357ef5"
+    img: https://bu.dusays.com/2023/04/21/644287166329b.png
+  statistic:
+    link: /archives
+    text: 文章隧道
+    cover: https://bu.dusays.com/2023/05/01/644f4b037b930.jpg
+  map:
+    title: 我现在住在
+    StrengthenTitle: 中国，苏州市
+    background: https://ooo.0x0.ooo/2024/03/03/OyP9ur.png
+    backgroundDark: https://ooo.0x0.ooo/2024/03/03/OyPlLc.png
+  selfInfo:
+    selfInfoTips1: 生于
+    selfInfoContentYear: 2004
+    selfInfoTips2: 西交利物浦大学
+    selfInfoContent2: 数字媒体技术
+    selfInfoTips3: 现在职业
+    selfInfoContent3: 大二学生👨‍🎓
+  personalities:
+    author_name: 调停者
+    personality_type: INFP-T
+    photo_url: https://ooo.0x0.ooo/2024/03/02/OyPxXM.jpg
+    personality_img: https://ooo.0x0.ooo/2024/03/02/OyPkHr.png
+    name_url: https://www.16personalities.com/ch/infp-人格
+  maxim:
+    maxim_tips: 座右铭
+    maxim_top: 时至今日，
+    maxim_bottom: 你仍是我的光。
+  buff:
+    buff_tips: 特长
+    buff_top: 狂赶DDL的 神
+    buff_bottom: 只想躺平的 舞萌痴
+  game:
+    game_tips: 爱好游戏
+    game_title: 原神
+    game_uid: "UID: 119714773"
+    game_bg: https://bu.dusays.com/2023/04/22/64433bf26e25d.webp
+  comic:
+    comic_tips: 爱好番剧
+    comic_title: 追番
+    comic_list:
+      - name: 孤独摇滚！
+        href: https://www.bilibili.com/bangumi/media/md28339735
+        cover: https://ooo.0x0.ooo/2024/03/02/OyPFxG.jpg
+      - name: 刀剑神域
+        href: https://www.bilibili.com/bangumi/media/md24755609
+        cover: https://ooo.0x0.ooo/2024/03/02/OyPhJ1.jpg
+      - name: Charlotte
+        href: https://www.bilibili.com/bangumi/media/md2572
+        cover: https://ooo.0x0.ooo/2024/03/02/OyP7ZF.jpg
+      - name: 紫罗兰永恒花园
+        href: https://www.bilibili.com/bangumi/media/md8892
+        cover: https://bu.dusays.com/2023/05/24/646db43983d99.webp
+      - name: 鬼灭之刃
+        href: https://www.bilibili.com/bangumi/media/md22718131
+        cover: https://bu.dusays.com/2023/05/24/646db439856a0.webp
+      - name: 夏日重现
+        href: https://www.bilibili.com/bangumi/media/md28237126
+        cover: https://ooo.0x0.ooo/2024/03/02/OyPifI.jpg
+      - name: 月色真美
+        href: https://www.bilibili.com/bangumi/media/md5989
+        cover: https://ooo.0x0.ooo/2024/03/02/OyP1BD.jpg
+  like:
+    like_tips: 关注偏好
+    like_title: 数码科技
+    like_bg: https://bu.dusays.com/2022/12/06/638f5f05ce1f7.jpg
+    like_bottom: 手机、电脑软硬件
+  music:
+    music_tips: 音乐偏好
+    music_title: CPop, JPop, 民谣
+    music_bg: https://ooo.0x0.ooo/2024/03/02/OyPrMP.jpg
+    music_link: /music
