@@ -1,0 +1,550 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>INT104-Tutorial 2 | 迟然</title><meta name="keywords" content="学习,Python,INT104"><meta name="author" content="迟然,CheerfulChen5@gmail.com"><meta name="copyright" content="迟然"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="INT104-Tutorial 2"><meta name="application-name" content="INT104-Tutorial 2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="INT104-Tutorial 2"><meta property="og:url" content="http://example.com/2024/03/15/INT104-Tutorial%202/index.html"><meta property="og:site_name" content="迟然"><meta property="og:description" content="想了想还是先写Tutorial的吧，这门课Lecture已经讲到起飞了，根本听不懂啊。而TTL这边则负责打基础，总共花三节课给Python讲完是吧。 运算符算术运算符这是基础中的基础了，python的算术运算符和java相类似，最基础的就是： 1234567print(4 + 3) # 7print"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://ooo.0x0.ooo/2024/03/15/Ogowqc.jpg"><meta property="article:author" content="迟然"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://ooo.0x0.ooo/2024/03/15/Ogowqc.jpg"><meta name="description" content="想了想还是先写Tutorial的吧，这门课Lecture已经讲到起飞了，根本听不懂啊。而TTL这边则负责打基础，总共花三节课给Python讲完是吧。 运算符算术运算符这是基础中的基础了，python的算术运算符和java相类似，最基础的就是： 1234567print(4 + 3) # 7print"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2024/03/15/INT104-Tutorial%202/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: {"enable":true,"ck":"3HfmkISU3x74mfHf","LingQueMonitorID":"3HfmpIL5h0Kwo1Qz"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":17},{"greeting":"18点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":18,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 迟然","link":"链接: ","source":"来源: 迟然","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '迟然',
+  title: 'INT104-Tutorial 2',
+  postAI: '',
+  pageFillDescription: '运算符, 算术运算符, 比较运算符, 逻辑运算符, If Else关键字, Loop, For loop, While loop, 定义函数, 多种输出方式想了想还是先写的吧这门课已经讲到起飞了根本听不懂啊而这边则负责打基础总共花三节课给讲完是吧运算符算术运算符这是基础中的基础了的算术运算符和相类似最基础的就是首先这三个没什么可讲了所以我们来讲讲这个除法众所周知的变量是不需要定义类型的程序会自动识别输入的数据并分配合适的类型真的很方便所以当我们输入时会自动将结果识别为类型如果想要输出不带小数点的我们可以使用这个整除符号当然我们也可以将其强转为类型最后一个是取余当然和中的一样简单的说就是把除以后余下的数取出来所以叫做取余在中指数运算也被算作了算术运算符其符号为在中我们需要使用来进行指数运算但是在中我们只需要即可是不是很方便所有算数运算符的运算顺序与数学中相一致并且也可以使用来提高运算的优先级比较运算符比较运算符与中相一致就不过多赘述了要注意为赋值运算符而为比较运算符两者不一致逻辑运算符同样也与中相一致检查是否是的倍数检查是否是的倍数关键字功能与相同只是语法不同使用比较运算符也是可以的阿斌阿斌给斌神了你好呀给斌神了你好呀在中我们使用而不是你是你是的循环是一种迭代控制流语句可以用于遍历序列如字符串列表元组字典集合中的每个元素或者执行指定次数的循环其使用方式类似于中的增强循环如果我们想达到类似中普通循环的效果可以使用的形式其中中的前者是起始后者是终止也可以使用单数字形式表示从至所填数字不包含如你出生了你成年了三十而立四十不惑五十知天命六十耳顺从心所欲不逾矩古来稀你出生了你成年了三十而立四十不惑五十知天命六十耳顺从心所欲不逾矩古来稀古来稀古来稀古来稀古来稀循环与中相一致定义函数真不愧是最简单的语言只需要使用即可创建函数不用管是否有返回值或是返回值的类型是什么除此之外我们还可以给传入数据定义默认参数当未传入参数时会自动使用默认参数来替代的默认参数阿斌顺序也可以是无所谓的阿斌并且我们还可以讲默认参数设置为配合语句可以实现当未传入该参数时不输出的效果默认参数为阿斌顺序无所谓阿斌在定义的函数中使用关键字传入的数据可以时列表当返回多个数据时也是以列表形式返回多种输出方式支持很多种将字符串与数字连接的输出方式使用号时需要把数字强转为字符串形式使用时可以直接连接字符串与数字并且会自动补充空格后面两个都是方法格式化输出我们最常使用的是第四种这样的格式对于第三种的表示要对值进行格式化表示小数点表示保留小数点后一位数字表示使用浮点数格式所以完整来看表示保留小数点后一位数字的浮点数格式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-15 01:22:56',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="迟然" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">个人主页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://twitter.com/Cheerful_Chen/" title="Twitter"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPdvU.png" alt="Twitter"/><span class="back-menu-item-text">Twitter</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">联系方式</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://t.me/cheerfulchen/" title="Telegram"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPscY.png" alt="Telegram"/><span class="back-menu-item-text">Telegram</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">迟然</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8975672819&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/CPT102/" style="font-size: 1.05rem;">CPT102<sup>1</sup></a><a href="/tags/CPT103/" style="font-size: 1.05rem;">CPT103<sup>1</sup></a><a href="/tags/EEE104/" style="font-size: 1.05rem;">EEE104<sup>1</sup></a><a href="/tags/INT104/" style="font-size: 1.05rem;">INT104<sup>2</sup></a><a href="/tags/MySQL/" style="font-size: 1.05rem;">MySQL<sup>1</sup></a><a href="/tags/Python/" style="font-size: 1.05rem;">Python<sup>3</sup></a><a href="/tags/%E4%B8%8A%E7%BD%91/" style="font-size: 1.05rem;">上网<sup>1</sup></a><a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 1.05rem;">二进制<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">学习<sup>5</sup></a><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">杂谈<sup>3</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/" itemprop="url">大学生涯</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>学习</span></a><a class="article-meta__tags" href="/tags/Python/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Python</span></a><a class="article-meta__tags" href="/tags/INT104/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>INT104</span></a></span></div></div><h1 class="post-title" itemprop="name headline">INT104-Tutorial 2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-03-14T17:20:26.000Z" title="发表于 2024-03-15 01:20:26">2024-03-15</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-03-14T17:22:56.953Z" title="更新于 2024-03-15 01:22:56">2024-03-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">1.9k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="INT104-Tutorial 2"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为苏州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>苏州</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/03/15/INT104-Tutorial%202/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://ooo.0x0.ooo/2024/03/15/Ogowqc.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2024/03/15/INT104-Tutorial%202/"><header><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/" itemprop="url">大学生涯</a><a href="/tags/%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url">学习</a><a href="/tags/Python/" tabindex="-1" itemprop="url">Python</a><a href="/tags/INT104/" tabindex="-1" itemprop="url">INT104</a><h1 id="CrawlerTitle" itemprop="name headline">INT104-Tutorial 2</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">迟然</span><time itemprop="dateCreated datePublished" datetime="2024-03-14T17:20:26.000Z" title="发表于 2024-03-15 01:20:26">2024-03-15</time><time itemprop="dateCreated datePublished" datetime="2024-03-14T17:22:56.953Z" title="更新于 2024-03-15 01:22:56">2024-03-15</time></header><p>想了想还是先写Tutorial的吧，这门课Lecture已经讲到起飞了，根本听不懂啊。而TTL这边则负责打基础，总共花三节课给Python讲完是吧。</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p>这是基础中的基础了，python的算术运算符和java相类似，最基础的就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">4</span> + <span class="number">3</span>) <span class="comment"># 7</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">4</span> - <span class="number">3</span>) <span class="comment"># 1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">4</span> * <span class="number">3</span>) <span class="comment"># 12</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">7</span> / <span class="number">2</span>) <span class="comment"># 3.5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">7</span> // <span class="number">2</span>) <span class="comment"># 3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="number">7</span> / <span class="number">2</span>)) <span class="comment"># 3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">7</span> % <span class="number">2</span>) <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+<p>首先，”+”, “-“, “*”这三个没什么可讲了，所以我们来讲讲这个除法。众所周知，python的变量是不需要定义类型的，程序会自动识别输入的数据并分配合适的类型（真的很方便！）。所以当我们输入”&#x2F;“时，python会自动将结果识别为<code>float</code>类型。如果想要输出不带小数点的，我们可以使用”&#x2F;&#x2F;“这个整除符号。当然，我们也可以将其强转为<code>int</code>类型。最后一个”%”是取余（当然和java中的一样），简单的说就是把7除以2后余下的数取出来，所以叫做取余。<br>在python中，指数运算也被算作了算术运算符，其符号为”**”。在java中，我们需要使用<code>Math.pow()</code>来进行指数运算，但是在python中，我们只需要<code>7 ** 2 = 49</code>即可，是不是很方便！<br>所有算数运算符的运算顺序与数学中相一致，并且也可以使用<code>()</code>来提高运算的优先级。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">16</span> ** <span class="number">2</span> / <span class="number">4</span>) <span class="comment"># 64.0</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">4</span> + <span class="number">3</span> ** <span class="number">2</span>) <span class="comment"># 13</span></span><br><span class="line"><span class="built_in">print</span>((<span class="number">4</span> + <span class="number">3</span>) ** <span class="number">2</span>) <span class="comment"># 49</span></span><br></pre></td></tr></table></figure>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p>比较运算符与java中相一致，就不过多赘述了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span></span><br><span class="line">y = <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(x == y) <span class="comment"># False</span></span><br><span class="line"><span class="built_in">print</span>(x != y) <span class="comment"># True</span></span><br><span class="line"><span class="built_in">print</span>(x &lt; y) <span class="comment"># True</span></span><br><span class="line"><span class="built_in">print</span>(x &gt; y) <span class="comment"># False</span></span><br><span class="line"><span class="built_in">print</span>(x &lt;= y) <span class="comment"># True</span></span><br><span class="line"><span class="built_in">print</span>(x &gt;= y) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+<p>要注意，<code>=</code>为赋值运算符，而<code>==</code>为比较运算符，两者不一致！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br><span class="line">x == <span class="number">5</span> <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>同样，也与java中相一致。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="literal">False</span></span><br><span class="line">b = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> a) <span class="comment"># True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> b) <span class="comment"># False</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">or</span> b) <span class="comment"># True</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">and</span> b) <span class="comment"># False</span></span><br><span class="line"></span><br><span class="line">x = <span class="number">14</span></span><br><span class="line">(x &gt; <span class="number">10</span>) <span class="keyword">and</span> (x &lt; <span class="number">20</span>) <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line">y = <span class="number">42</span></span><br><span class="line"><span class="keyword">not</span> ((x % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">and</span> (y % <span class="number">3</span> == <span class="number">0</span>)) <span class="comment"># False</span></span><br><span class="line"></span><br><span class="line">xDivisible = (x % <span class="number">2</span>) == <span class="number">0</span> <span class="comment"># 检查x是否是2的倍数</span></span><br><span class="line">yDivisible = (y % <span class="number">3</span>) == <span class="number">0</span> <span class="comment"># 检查y是否是3的倍数</span></span><br><span class="line"><span class="keyword">not</span> (xDivisible <span class="keyword">and</span> yDivisible) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+<h1 id="If-Else关键字"><a href="#If-Else关键字" class="headerlink" title="If Else关键字"></a>If Else关键字</h1><p>功能与java相同，只是语法不同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="literal">True</span></span><br><span class="line"><span class="keyword">if</span> x:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Executing if&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Executing else&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Prints regardless of the if-else block&quot;</span>)</span><br><span class="line"><span class="comment"># Out: Executing if</span></span><br><span class="line"><span class="comment"># Out: Prints regardless of the if-else block</span></span><br></pre></td></tr></table></figure>
+<p>使用比较运算符<code>==</code>也是可以的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;阿斌&quot;</span></span><br><span class="line"><span class="keyword">if</span> name == <span class="string">&quot;阿斌&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;给斌神🧎了&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;👋&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;你好呀&quot;</span>)</span><br><span class="line"><span class="comment"># Out: 给斌神🧎了</span></span><br><span class="line"><span class="comment"># Out: 你好呀</span></span><br></pre></td></tr></table></figure>
+<p>在python中，我们使用<code>elif</code>而不是<code>else if</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">type</span> = <span class="string">&quot;🍚&quot;</span></span><br><span class="line"><span class="keyword">elif</span> age == <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">type</span> = <span class="string">&quot;🐟&quot;</span></span><br><span class="line"><span class="keyword">elif</span> age &lt; <span class="number">28</span>:</span><br><span class="line">    <span class="built_in">type</span> = <span class="string">&quot;🐧&quot;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">type</span> = <span class="string">&quot;🐴&quot;</span></span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;你是&quot;</span> + <span class="built_in">type</span>) <span class="comment"># 你是🐧</span></span><br></pre></td></tr></table></figure>
+<h1 id="Loop"><a href="#Loop" class="headerlink" title="Loop"></a>Loop</h1><h2 id="For-loop"><a href="#For-loop" class="headerlink" title="For loop"></a>For loop</h2><p>python的for循环是一种迭代控制流语句，可以用于遍历序列（如字符串、列表、元组、字典、集合）中的每个元素，或者执行指定次数的循环。其使用方式类似于java中的增强for循环：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Serendipity = [<span class="string">&quot;🍚&quot;</span>, <span class="string">&quot;🐟&quot;</span>, <span class="string">&quot;🐧&quot;</span>, <span class="string">&quot;🐴&quot;</span>, <span class="string">&quot;🆘&quot;</span>, <span class="string">&quot;☀️&quot;</span>, <span class="string">&quot;🥣&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> bro <span class="keyword">in</span> Serendipity:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Bro&quot;</span>, bro, <span class="string">&quot;has index&quot;</span>, Serendipity.index(bro))</span><br><span class="line"><span class="comment"># Out: Bro 🍚 has index 0</span></span><br><span class="line"><span class="comment"># Out: Bro 🐟 has index 1</span></span><br><span class="line"><span class="comment"># Out: Bro 🐧 has index 2</span></span><br><span class="line"><span class="comment"># Out: Bro 🐴 has index 3</span></span><br><span class="line"><span class="comment"># Out: Bro 🆘 has index 4</span></span><br><span class="line"><span class="comment"># Out: Bro ☀️ has index 5</span></span><br><span class="line"><span class="comment"># Out: Bro 🥣 has index 6</span></span><br></pre></td></tr></table></figure>
+<p>如果我们想达到类似java中普通for循环的效果，可以使用<code>for i in range(1, 10)</code>的形式。其中，<code>range</code>中的前者是起始，后者是终止。也可以使用单数字形式，表示从 1 至所填数字（不包含），如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">85</span>):</span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;你出生了&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num == <span class="number">18</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;你成年了&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num == <span class="number">30</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;三十而立&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num == <span class="number">40</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;四十不惑&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num == <span class="number">50</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;五十知天命&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num == <span class="number">60</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;六十耳顺&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num == <span class="number">70</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;从心所欲，不逾矩&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num &gt;= <span class="number">80</span>:</span><br><span class="line">        <span class="built_in">print</span>(num)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;古来稀&quot;</span>)</span><br><span class="line"><span class="comment"># Out: 1</span></span><br><span class="line"><span class="comment"># Out: 你出生了</span></span><br><span class="line"><span class="comment"># Out: 18</span></span><br><span class="line"><span class="comment"># Out: 你成年了</span></span><br><span class="line"><span class="comment"># Out: 30</span></span><br><span class="line"><span class="comment"># Out: 三十而立</span></span><br><span class="line"><span class="comment"># Out: 40</span></span><br><span class="line"><span class="comment"># Out: 四十不惑</span></span><br><span class="line"><span class="comment"># Out: 50</span></span><br><span class="line"><span class="comment"># Out: 五十知天命</span></span><br><span class="line"><span class="comment"># Out: 60</span></span><br><span class="line"><span class="comment"># Out: 六十耳顺</span></span><br><span class="line"><span class="comment"># Out: 70</span></span><br><span class="line"><span class="comment"># Out: 从心所欲，不逾矩</span></span><br><span class="line"><span class="comment"># Out: 80</span></span><br><span class="line"><span class="comment"># Out: 古来稀</span></span><br><span class="line"><span class="comment"># Out: 81</span></span><br><span class="line"><span class="comment"># Out: 古来稀</span></span><br><span class="line"><span class="comment"># Out: 82</span></span><br><span class="line"><span class="comment"># Out: 古来稀</span></span><br><span class="line"><span class="comment"># Out: 83</span></span><br><span class="line"><span class="comment"># Out: 古来稀</span></span><br><span class="line"><span class="comment"># Out: 84</span></span><br><span class="line"><span class="comment"># Out: 古来稀</span></span><br></pre></td></tr></table></figure>
+<h2 id="While-loop"><a href="#While-loop" class="headerlink" title="While loop"></a>While loop</h2><p>while循环与java中相一致：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Executing while loop&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    n = n + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Finished while loop&quot;</span>)</span><br><span class="line"><span class="comment"># Out: Executing while loop</span></span><br><span class="line"><span class="comment"># Out: Executing while loop</span></span><br><span class="line"><span class="comment"># Out: Executing while loop</span></span><br><span class="line"><span class="comment"># Out: Executing while loop</span></span><br><span class="line"><span class="comment"># Out: Executing while loop</span></span><br><span class="line"><span class="comment"># Out: Executing while loop</span></span><br><span class="line"><span class="comment"># Out: Finished while loop</span></span><br></pre></td></tr></table></figure>
+<h1 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h1><p>python真不愧是最简单的语言，只需要使用<code>def</code>即可创建函数。不用管是否有返回值，或是返回值的类型是什么。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet_user</span>(<span class="params">username</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello,&quot;</span>, username + <span class="string">&quot;!&quot;</span>)</span><br><span class="line">greet_user(<span class="string">&quot;🍚&quot;</span>)</span><br><span class="line">greet_user(<span class="string">&quot;🐧&quot;</span>)</span><br><span class="line">greet_user(<span class="string">&quot;🐟&quot;</span>)</span><br><span class="line"><span class="comment"># Out: Hello, 🍚!</span></span><br><span class="line"><span class="comment"># Out: Hello, 🐧!</span></span><br><span class="line"><span class="comment"># Out: Hello, 🐟!</span></span><br></pre></td></tr></table></figure>
+<p>除此之外，我们还可以给传入数据定义默认参数。当未传入参数时，python会自动使用默认参数来替代：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">describe_pet</span>(<span class="params">name, animal = <span class="string">&quot;dog&quot;</span></span>): <span class="comment"># animal的默认参数：dog</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;I have a&quot;</span>, animal + <span class="string">&quot;.&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Its name is&quot;</span>, name + <span class="string">&quot;.&quot;</span>)</span><br><span class="line">describe_pet(<span class="string">&quot;阿斌&quot;</span>, <span class="string">&quot;penguin&quot;</span>)</span><br><span class="line">describe_pet(<span class="string">&quot;🍚&quot;</span>)</span><br><span class="line">describe_pet(animal = <span class="string">&quot;horse&quot;</span>, name = <span class="string">&quot;🐴&quot;</span>) <span class="comment"># 顺序也可以是无所谓的</span></span><br><span class="line"><span class="comment"># Out: I have a penguin.</span></span><br><span class="line"><span class="comment"># Out: Its name is 阿斌.</span></span><br><span class="line"><span class="comment"># Out: I have a dog.</span></span><br><span class="line"><span class="comment"># Out: Its name is 🍚.</span></span><br><span class="line"><span class="comment"># Out: I have a horse.</span></span><br><span class="line"><span class="comment"># Out: Its name is 🐴.</span></span><br></pre></td></tr></table></figure>
+<p>并且，我们还可以讲默认参数设置为<code>None</code>。配合if语句，可以实现当未传入该参数时不输出的效果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">describe_pet</span>(<span class="params">name, animal = <span class="literal">None</span></span>): <span class="comment"># 默认参数为None</span></span><br><span class="line">    <span class="keyword">if</span> animal:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;I have a&quot;</span>, animal + <span class="string">&quot;.&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Its name is&quot;</span>, name + <span class="string">&quot;.&quot;</span>)</span><br><span class="line">describe_pet(<span class="string">&quot;阿斌&quot;</span>, <span class="string">&quot;penguin&quot;</span>)</span><br><span class="line">describe_pet(<span class="string">&quot;🍚&quot;</span>)</span><br><span class="line">describe_pet(animal = <span class="string">&quot;horse&quot;</span>, name = <span class="string">&quot;🐴&quot;</span>) <span class="comment"># 顺序无所谓</span></span><br><span class="line"><span class="comment"># Out: I have a penguin.</span></span><br><span class="line"><span class="comment"># Out: Its name is 阿斌.</span></span><br><span class="line"><span class="comment"># Out: Its name is 🍚.</span></span><br><span class="line"><span class="comment"># Out: I have a horse.</span></span><br><span class="line"><span class="comment"># Out: Its name is 🐴.</span></span><br></pre></td></tr></table></figure>
+<p>在定义的函数中使用If-Else关键字：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">roundNum</span>(<span class="params">num</span>):</span><br><span class="line">    remainder = num % <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> remainder &lt; <span class="number">0.5</span>:</span><br><span class="line">        <span class="keyword">return</span> num - remainder</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> num + (<span class="number">1</span> - remainder)</span><br><span class="line"><span class="built_in">print</span>(roundNum(<span class="number">3.4</span>))</span><br><span class="line"><span class="built_in">print</span>(roundNum(<span class="number">7.7</span>))</span><br><span class="line"><span class="built_in">print</span>(roundNum(<span class="number">9.2</span>))</span><br><span class="line"><span class="comment"># Out: 3.0</span></span><br><span class="line"><span class="comment"># Out: 8.0</span></span><br><span class="line"><span class="comment"># Out: 9.0</span></span><br></pre></td></tr></table></figure>
+<p>传入的数据可以时列表，当返回多个数据时，也是以列表形式返回：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">listFunc</span>(<span class="params">my_list</span>):</span><br><span class="line">    maximum = <span class="built_in">max</span>(my_list)</span><br><span class="line">    minimum = <span class="built_in">min</span>(my_list)</span><br><span class="line">    first = my_list[<span class="number">0</span>]</span><br><span class="line">    last = my_list[-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> maximum,minimum,first,last</span><br><span class="line"></span><br><span class="line">l=[<span class="number">24</span>, <span class="number">12</span>, <span class="number">68</span>, <span class="number">40</span>, <span class="number">120</span>, <span class="number">96</span>]</span><br><span class="line">params = listFunc(l)</span><br><span class="line"><span class="built_in">print</span>(params)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Max value is&quot;</span>, params[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Min value is&quot;</span>, params[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;First value is&quot;</span>, params[<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Last value is&quot;</span>, params[<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out: (120, 12, 24, 96)</span></span><br><span class="line"><span class="comment"># Out: Max value is 120</span></span><br><span class="line"><span class="comment"># Out: Min value is 12</span></span><br><span class="line"><span class="comment"># Out: First value is 24</span></span><br><span class="line"><span class="comment"># Out: Last value is 96</span></span><br></pre></td></tr></table></figure>
+<h1 id="多种输出方式"><a href="#多种输出方式" class="headerlink" title="多种输出方式"></a>多种输出方式</h1><p>python支持很多种将字符串与数字连接的输出方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pi = <span class="number">3.14159</span></span><br><span class="line">d = <span class="number">12756</span></span><br><span class="line">c = pi * d</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Earth&#x27;s diameter at equator: &quot;</span> + <span class="built_in">str</span>(d) + <span class="string">&quot; km. Equator&#x27;s circumference: &quot;</span> + <span class="built_in">str</span>(c) + <span class="string">&quot; km.&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Earth&#x27;s diameter at equator:&quot;</span>, d, <span class="string">&quot;km. Equator&#x27;s circumference:&quot;</span>, c, <span class="string">&quot;km.&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Earth&#x27;s diameter at equator: &#123;:.1f&#125; km. Equator&#x27;s circumference: &#123;:.1f&#125; km.&quot;</span>.<span class="built_in">format</span>(d,c))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Earth&#x27;s diameter at equator: <span class="subst">&#123;d&#125;</span> km. Equator&#x27;s circumference: <span class="subst">&#123;c&#125;</span> km.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Out: Earth&#x27;s diameter at equator: 12756 km. Equator&#x27;s circumference: 40074.12204 km.</span></span><br><span class="line"><span class="comment"># Out: Earth&#x27;s diameter at equator: 12756 km. Equator&#x27;s circumference: 40074.12204 km.</span></span><br><span class="line"><span class="comment"># Out: Earth&#x27;s diameter at equator: 12756.0 km. Equator&#x27;s circumference: 40074.1 km.</span></span><br><span class="line"><span class="comment"># Out: Earth&#x27;s diameter at equator: 12756 km. Equator&#x27;s circumference: 40074.12204 km.</span></span><br></pre></td></tr></table></figure>
+<p>使用”+”号时，需要把数字强转为字符串形式。<br>使用”, “时，可以直接连接字符串与数字，并且会自动补充空格。<br>后面两个都是format() 方法格式化输出，我们最常使用的是第四种这样的格式。对于第三种的<code>&#123;:.1f&#125;</code>：</p>
+<ul>
+<li><code>:</code>：表示要对值进行格式化。</li>
+<li><code>.</code>：表示小数点。</li>
+<li><code>1</code>：表示保留小数点后一位数字。</li>
+<li><code>f</code>：表示使用浮点数格式。</li>
+</ul>
+<p>所以完整来看，<code>&#123;:.1f&#125;</code>表示保留小数点后一位数字的浮点数格式。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">迟然</div><div class="post-copyright__author_desc">世上的路有很多条.</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2024/03/15/INT104-Tutorial%202/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2024/03/15/INT104-Tutorial%202/')">INT104-Tutorial 2</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2024/03/15/INT104-Tutorial%202/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=INT104-Tutorial 2&amp;url=http://example.com/2024/03/15/INT104-Tutorial%202/&amp;pic=https://ooo.0x0.ooo/2024/03/15/Ogowqc.jpg" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">迟然</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%AD%A6%E4%B9%A0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>学习<span class="tagsPageCount">5</span></a><a class="post-meta__box__tags" href="/tags/Python/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Python<span class="tagsPageCount">3</span></a><a class="post-meta__box__tags" href="/tags/INT104/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>INT104<span class="tagsPageCount">2</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://ooo.0x0.ooo/2024/03/15/Ogowqc.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/03/08/EEE104-Lecture%201/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYxoL.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">EEE104-Lecture 1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2024/03/04/INT104-Tutorial%201/" title="INT104-Tutorial 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/04/Oyt31P.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-04</div><div class="title">INT104-Tutorial 1</div></div></a></div><div><a href="/2024/03/08/CPT102-Lecture%200/" title="CPT102-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYzri.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-08</div><div class="title">CPT102-Lecture 1</div></div></a></div><div><a href="/2024/03/05/CPT103-Lecture%201/" title="CPT103-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/05/OyckLK.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-05</div><div class="title">CPT103-Lecture 1</div></div></a></div><div><a href="/2024/03/08/EEE104-Lecture%201/" title="EEE104-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYxoL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-08</div><div class="title">EEE104-Lecture 1</div></div></a></div><div><a href="/2024/03/03/%E4%B8%80%E4%BA%9B%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E6%96%B9%E6%B3%95/" title="一些自动登录方法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyR5RB.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-03</div><div class="title">一些自动登录方法</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">一名来自<b style="color:#fff">西交利物浦大学</b>的大二学生。我将在这里分享<b style="color:#fff">课堂知识，课外遐想</b>以及<b style="color:#fff">生活方式</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">欢迎来到我的<b style="color:#fff">博客</b>，请您自由<b style="color:#fff">浏览</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><h1 class="author-info__name">迟然</h1><div class="author-info__desc">世上的路有很多条.</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/cheerfulchen" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/34922511" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">逻辑运算符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#If-Else%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.</span> <span class="toc-text">If Else关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Loop"><span class="toc-number">3.</span> <span class="toc-text">Loop</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#For-loop"><span class="toc-number">3.1.</span> <span class="toc-text">For loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#While-loop"><span class="toc-number">3.2.</span> <span class="toc-text">While loop</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">定义函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%A7%8D%E8%BE%93%E5%87%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">多种输出方式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/15/INT104-Tutorial%202/" title="INT104-Tutorial 2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/15/Ogowqc.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="INT104-Tutorial 2"/></a><div class="content"><a class="title" href="/2024/03/15/INT104-Tutorial%202/" title="INT104-Tutorial 2">INT104-Tutorial 2</a><time datetime="2024-03-14T17:20:26.000Z" title="发表于 2024-03-15 01:20:26">2024-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/08/EEE104-Lecture%201/" title="EEE104-Lecture 1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYxoL.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EEE104-Lecture 1"/></a><div class="content"><a class="title" href="/2024/03/08/EEE104-Lecture%201/" title="EEE104-Lecture 1">EEE104-Lecture 1</a><time datetime="2024-03-07T16:06:45.000Z" title="发表于 2024-03-08 00:06:45">2024-03-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/08/CPT102-Lecture%200/" title="CPT102-Lecture 1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYzri.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CPT102-Lecture 1"/></a><div class="content"><a class="title" href="/2024/03/08/CPT102-Lecture%200/" title="CPT102-Lecture 1">CPT102-Lecture 1</a><time datetime="2024-03-07T16:06:32.000Z" title="发表于 2024-03-08 00:06:32">2024-03-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/05/CPT103-Lecture%201/" title="CPT103-Lecture 1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/05/OyckLK.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CPT103-Lecture 1"/></a><div class="content"><a class="title" href="/2024/03/05/CPT103-Lecture%201/" title="CPT103-Lecture 1">CPT103-Lecture 1</a><time datetime="2024-03-05T14:05:56.000Z" title="发表于 2024-03-05 22:05:56">2024-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/04/INT104-Tutorial%201/" title="INT104-Tutorial 1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/04/Oyt31P.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="INT104-Tutorial 1"/></a><div class="content"><a class="title" href="/2024/03/04/INT104-Tutorial%201/" title="INT104-Tutorial 1">INT104-Tutorial 1</a><time datetime="2024-03-04T10:21:23.000Z" title="发表于 2024-03-04 18:21:23">2024-03-04</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2023 - 2024 By <a class="footer-bar-link" href="/" title="迟然" target="_blank">迟然</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">2</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">个人主页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://twitter.com/Cheerful_Chen/" title="Twitter"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPdvU.png" alt="Twitter"/><span class="back-menu-item-text">Twitter</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">联系方式</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://t.me/cheerfulchen/" title="Telegram"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPscY.png" alt="Telegram"/><span class="back-menu-item-text">Telegram</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8975672819&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/CPT102/" style="font-size: 0.88rem;">CPT102<sup>1</sup></a><a href="/tags/CPT103/" style="font-size: 0.88rem;">CPT103<sup>1</sup></a><a href="/tags/EEE104/" style="font-size: 0.88rem;">EEE104<sup>1</sup></a><a href="/tags/INT104/" style="font-size: 0.88rem;">INT104<sup>2</sup></a><a href="/tags/MySQL/" style="font-size: 0.88rem;">MySQL<sup>1</sup></a><a href="/tags/Python/" style="font-size: 0.88rem;">Python<sup>3</sup></a><a href="/tags/%E4%B8%8A%E7%BD%91/" style="font-size: 0.88rem;">上网<sup>1</sup></a><a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 0.88rem;">二进制<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">学习<sup>5</sup></a><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">杂谈<sup>3</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8975672819" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/my/m/music/playlist?id=8975672819&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("03/02/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2023 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 迟然 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
