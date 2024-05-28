@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-03-15T13:26:55.056Z</updated>
+  <updated>2024-05-28T07:33:16.358Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EEE104-Lecture 2</title>
+    <link href="http://example.com/2024/05/28/EEE104-Lecture%202/"/>
+    <id>http://example.com/2024/05/28/EEE104-Lecture%202/</id>
+    <published>2024-05-28T07:20:34.000Z</published>
+    <updated>2024-05-28T07:33:16.358Z</updated>
+    
+    <content type="html"><![CDATA[<p>注意⚠️：本专栏的顺序与上课顺序<strong>不一定完全一致</strong>！！！</p><h1 id="带符号数"><a href="#带符号数" class="headerlink" title="带符号数"></a>带符号数</h1><p>在计算机的世界中，<strong>所有数字</strong>都是以<strong>补码形式</strong>存在的！<br>只不过，正数的补码<strong>是它本身</strong>，而<strong>负数的补码</strong>，则需要将正数<strong>进行2的补</strong>。</p><h2 id="1的补"><a href="#1的补" class="headerlink" title="1的补"></a>1的补</h2><p><strong>定义:</strong> 对于一个n位的二进制数 A，它的1的补 A’ 是将 A 中的每个1变为0，每个0变为1得到的数。</p><p><strong>计算方法:</strong></p><ol><li>将 A 的所有位进行反转。</li><li>不考虑进位，得到 A’。</li></ol><p><strong>举例:</strong></p><ul><li>A &#x3D; 1010，则 A’ &#x3D; 0101。</li><li>A &#x3D; 1111，则 A’ &#x3D; 0000。</li></ul><h2 id="2的补"><a href="#2的补" class="headerlink" title="2的补"></a>2的补</h2><p><strong>定义:</strong> 对于一个n位的二进制数 A，它的2的补 A’’ 是将 A 的1的补 A’ 再加1得到的数。</p><p><strong>计算方法:</strong></p><ol><li>计算 A 的1的补 A’。</li><li>将 A’ 和1相加，得到 A’’。</li></ol><p><strong>举例:</strong></p><ul><li>A &#x3D; 1010，则 A’ &#x3D; 0101，A’’ &#x3D; 0101 + 1 &#x3D; 0110。</li><li>A &#x3D; 1111，则 A’ &#x3D; 0000，A’’ &#x3D; 0000 + 1 &#x3D; 0001。</li></ul><h2 id="1的补和2的补的性质"><a href="#1的补和2的补的性质" class="headerlink" title="1的补和2的补的性质"></a>1的补和2的补的性质</h2><ul><li>对于正数 A，A’ 和 A’’ 相等。</li><li>对于负数 A’，A’’ 等于 -A 的二进制表示。</li><li>A 和 A’’ 的所有位相加，进位为1。</li></ul><h2 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h2><p><img src="https://s3.bmp.ovh/imgs/2024/05/28/c5e3a3acde929a80.jpg"><br><img src="https://s3.bmp.ovh/imgs/2024/05/28/aeb4656d746b8cf5.jpg"><br><img src="https://s3.bmp.ovh/imgs/2024/05/28/9bb6c6b1acd0469a.jpg"></p><h2 id="带符号数的数学运算"><a href="#带符号数的数学运算" class="headerlink" title="带符号数的数学运算"></a>带符号数的数学运算</h2><h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><p>什么都不用管！直接加就行！最后舍弃进位即可！<br><img src="https://s3.bmp.ovh/imgs/2024/05/28/e1414e054b07a2da.jpg"></p><h4 id="位溢出"><a href="#位溢出" class="headerlink" title="位溢出"></a>位溢出</h4><p>一般题里不会出现。指的是相加后超出了8位能存载的值（-127～128）。</p><h3 id="减法"><a href="#减法" class="headerlink" title="减法"></a>减法</h3><p>将<strong>被减数</strong>取<strong>相反数</strong>后相加即可。<br><img src="https://s3.bmp.ovh/imgs/2024/05/28/61d340cec2805805.jpg"></p><h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><p>将数字与符号<strong>分开计算</strong>。如果<strong>有负数</strong>，将其变为<strong>正数</strong>后相乘。最后再根据<strong>负号的个数</strong>转换最后的结果。<br><img src="https://s3.bmp.ovh/imgs/2024/05/28/373de1ff46c58103.jpg"></p><h3 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h3><p>除法可化简为<strong>减法运算</strong>，归根结底为<strong>n次减去</strong>被除数，所得结果即<strong>为n</strong>。而减法又能化简为<strong>加法运算</strong>，所以只需要反复加上<strong>被除数的相反数</strong>，直至0为止。<br>也可以使用类似于十进制的<strong>竖式</strong>来做，但需要<strong>注意正负号</strong>。</p><h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>最基础的部分讲完啦，接下来就是<strong>逻辑门</strong>啦！之后的部分<strong>难度更大</strong>，属于数电最难的部分！<strong>加油冲冲冲！</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;注意⚠️：本专栏的顺序与上课顺序&lt;strong&gt;不一定完全一致&lt;/strong&gt;！！！&lt;/p&gt;
+&lt;h1 id=&quot;带符号数&quot;&gt;&lt;a href=&quot;#带符号数&quot; class=&quot;headerlink&quot; title=&quot;带符号数&quot;&gt;&lt;/a&gt;带符号数&lt;/h1&gt;&lt;p&gt;在计算机的世界中，&lt;s</summary>
+      
+    
+    
+    
+    <category term="大学生涯" scheme="http://example.com/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/"/>
+    
+    
+    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="二进制" scheme="http://example.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
+    
+    <category term="EEE104" scheme="http://example.com/tags/EEE104/"/>
+    
+  </entry>
   
   <entry>
     <title>CPT103-Lecture 2</title>
