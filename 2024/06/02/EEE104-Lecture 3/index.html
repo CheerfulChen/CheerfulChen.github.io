@@ -1,0 +1,1020 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>EEE104-Lecture 3 | 迟然</title><meta name="keywords" content="学习,二进制,EEE104"><meta name="author" content="迟然,CheerfulChen5@gmail.com"><meta name="copyright" content="迟然"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="EEE104-Lecture 3"><meta name="application-name" content="EEE104-Lecture 3"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="EEE104-Lecture 3"><meta property="og:url" content="http://example.com/2024/06/02/EEE104-Lecture%203/index.html"><meta property="og:site_name" content="迟然"><meta property="og:description" content="比较器比较器是一种组合逻辑电路，用于比较两个二进制数的大小。比较器可以分为相等比较器和不等比较器。以下是比较器的工作原理： 1. 相等比较器相等比较器用于判断两个输入是否相等。一个简单的相等比较器可以使用异或（XOR）门来实现。  1位相等比较器：  输入：A 和 B 输出：如果 A 和 B 相等，"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://ooo.0x0.ooo/2024/06/02/OJHjcM.jpg"><meta property="article:author" content="迟然"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://ooo.0x0.ooo/2024/06/02/OJHjcM.jpg"><meta name="description" content="比较器比较器是一种组合逻辑电路，用于比较两个二进制数的大小。比较器可以分为相等比较器和不等比较器。以下是比较器的工作原理： 1. 相等比较器相等比较器用于判断两个输入是否相等。一个简单的相等比较器可以使用异或（XOR）门来实现。  1位相等比较器：  输入：A 和 B 输出：如果 A 和 B 相等，"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2024/06/02/EEE104-Lecture%203/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: {"enable":true,"ck":"3HfmkISU3x74mfHf","LingQueMonitorID":"3HfmpIL5h0Kwo1Qz"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":17},{"greeting":"18点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":18,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 迟然","link":"链接: ","source":"来源: 迟然","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '迟然',
+  title: 'EEE104-Lecture 3',
+  postAI: '',
+  pageFillDescription: '比较器, 1. 相等比较器, 2. 不等比较器, 3. 不等比较器的例子, 解码器, 解码器的基本概念, 工作原理, 示例：2位输入的4线解码器（2-to-4 Decoder）, 4位输入的16线解码器（4-to-16 Decoder）, 特殊解码器, 实际应用, 例子：74HC154 4线到16线解码器, 编码器, 编码器的基本概念, 工作原理, 示例：4-to-2 优先编码器（4-to-2 Priority Encoder）, 优先编码器, 示例：十进制到BCD编码器（Decimal-to-BCD Encoder）, 实际应用, 例子：74HC147 十进制到BCD优先编码器, 多路复用器, 多路复用器的基本概念, 工作原理, 示例：2-to-1 多路复用器, 示例：4-to-1 多路复用器, 多路复用器的实际应用, 例子：74HC151 8-to-1 多路复用器, 多路复用器的电路实现, 解多路复用器, 解多路复用器的基本概念, 工作原理, 示例：1-to-4 解多路复用器, 解多路复用器的实际应用, 例子：74HC139 双1-to-4 解多路复用器, 解多路复用器的电路实现比较器比较器是一种组合逻辑电路用于比较两个二进制数的大小比较器可以分为相等比较器和不等比较器以下是比较器的工作原理相等比较器相等比较器用于判断两个输入是否相等一个简单的相等比较器可以使用异或门来实现位相等比较器输入和输出如果和相等输出为否则为实现方法使用一个异或门如果和相等的输出为然后取反可以得到相等比较器的输出多位相等比较器输入多个位的二进制数例如和输出如果所有对应位相等输出为否则为实现方法将每个位对使用异或门比较然后将所有异或门的输出输入到一个与门如果所有位相等异或门的输出都为与门的输出为不等比较器不等比较器用于判断两个输入数的大小关系大于小于或等于通常使用逐位比较的方法多位不等比较器输入多个位的二进制数例如和输出或实现方法从最高位开始比较如果最高位的比较结果不相等则高位决定大小关系如果相等则继续比较下一位直到找到不同位或者比较完所有位例如是一个常用的位不等比较器其工作方式如下比较最高位检查和如果则如果则如果继续比较下一位逐位比较重复上述过程依次比较和和和如果所有位都相等则实现电路使用级联的比较电路进行逐位比较具有级联输入和输出可以实现多位数的比较通过连接多个实现更高位的比较不等比较器的例子具体实现一个位不等比较器如的电路逻辑输入和的每个位和输出和逻辑对于每一位使用以下逻辑输出表示输出表示如果则检查下一位通过组合这些逻辑门可以设计一个完整的比较器电路用于判断两个二进制数的大小关系这些比较器在数字电路中广泛用于排序选择和控制逻辑中解码器解码器是一种组合逻辑电路用于将编码的数据转换成指定的输出信号它的工作原理是根据输入的二进制编码激活唯一的输出线以下是解码器的详细工作原理和示例解码器的基本概念解码器接受位二进制输入并生成个输出每一个输出对应于输入的一个唯一的二进制组合工作原理输入和输出关系输入位二进制数例如输出个输出线中的一个被激活例如当输入的二进制数对应某一个输出时该输出线被激活输出其他输出线保持不激活输出逻辑实现解码器使用逻辑与门和非门实现输入到输出的映射每一个输出对应于一个唯一的输入组合非门用于将输入的某些位取反以实现正确的逻辑组合示例位输入的线解码器假设有位输入和输出为逻辑表达式位输入的线解码器假设有位输入输出为逻辑表达式特殊解码器到段显示解码器将码转换为段显示器的控制信号每个输出对应段显示器的一个段的点亮状态多级解码器通过级联多个解码器实现更高位数的解码例如使用两个解码器可以实现位输入的解码实际应用解码器在数字电路中有广泛的应用包括地址解码在存储器中选择特定的存储单元数据选择在多路复用器中选择特定的数据路径显示驱动控制段显示器或其他显示设备例子线到线解码器输入位输入输出条输出线中的一条被激活特点具有使能输入可以通过使能输入选择是否激活解码器通过以上描述可以看出解码器的核心工作原理是将输入的二进制编码转换成唯一的输出信号这一过程主要依赖逻辑与门和非门的组合来实现编码器编码器是一种组合逻辑电路用于将输入信号转换为二进制编码输出与解码器的工作方式相反编码器将多个输入信号中的一个高电平信号转换为相应的二进制编码以下是编码器的工作原理及其应用编码器的基本概念编码器接受个输入信号并生成位二进制输出每一个输出编码代表一个唯一的输入信号工作原理输入和输出关系输入个信号线其中只有一条信号线处于高电平逻辑输出位二进制数对应于高电平输入信号的位置逻辑实现编码器使用逻辑或门来实现输入到输出的映射每一个输出位由多个输入信号通过或门组合而成示例优先编码器假设有个输入和位输出输入输入输入输入输出输出逻辑表达式或或优先编码器优先编码器是一种特殊的编码器它处理多个输入同时为高电平的情况优先编码器选择具有最高优先级的输入进行编码例如优先编码器的逻辑如下输入优先级从高到低输出输入输入输入输入输出输出逻辑表达式或和或和和示例十进制到编码器假设有个输入和位输出逻辑表达式或或或或或或或或或或或实际应用编码器在数字系统中有许多实际应用包括键盘编码器将按键输入转换为相应的二进制编码地址编码器将存储器地址转换为编码信号传感器数据编码将来自多个传感器的信号转换为二进制编码用于进一步处理例子十进制到优先编码器输入个输入仅一个为高电平输出位码表示高电平输入的位置特点优先编码功能多个输入为高电平时优先输出最高位的编码通过以上描述可以看出编码器的核心工作原理是将多个输入信号中的一个高电平信号转换为对应的二进制编码输出这一过程主要依赖逻辑或门的组合来实现多路复用器多路复用器简称是一种组合逻辑电路用于选择多个输入信号中的一个并将其传输到输出端它通常被称为数据选择器因为它根据控制信号选择信号来选择哪个输入信号通过到输出端多路复用器的基本概念多路复用器具有多个数据输入端若干个选择输入端和一个输出端选择输入端决定了哪个数据输入端的信号被传输到输出端工作原理输入和输出关系输入多个数据输入例如选择输入决定选择哪个数据输入例如其中输出单个输出选择逻辑多路复用器使用选择输入信号来选择其中一个数据输入并将其连接到输出根据选择输入的二进制值的输出端连接到对应的输入端示例多路复用器假设有个数据输入和个选择输入和个输出逻辑表达式当时当时示例多路复用器假设有个数据输入个选择输入和个输出选择输入选择输入输出逻辑表达式多路复用器的实际应用数据选择多路复用器可以选择不同的数据源传输到处理器或其他电路中信号路由在通信系统中多路复用器可以用于信号的路由选择将多个信号通过一个通道传输逻辑函数实现多路复用器可以用于实现任意逻辑函数例如通过设置不同的选择输入可以实现特定的逻辑组合例子多路复用器输入个数据输入个选择输入输出单个输出特点可以根据选择输入将一个数据输入传输到输出端具有使能输入来控制多路复用器是否工作多路复用器的电路实现多路复用器通常使用与门或门和非门来实现以下是多路复用器的电路实现示例选择输入和数据输入输出使用两个选择输入和的组合生成选择控制信号将选择控制信号与数据输入通过与门相连接生成部分选择信号将所有部分选择信号通过或门组合生成最终输出信号通过这种方式多路复用器可以实现对多个数据输入的选择和输出控制多路复用器在数字电路设计中有广泛的应用尤其在需要选择和路由多个信号的场合解多路复用器解多路复用器简称是一种组合逻辑电路用于将单一的输入信号分配到多个输出线中的一个与多路复用器相反解多路复用器根据选择输入信号将数据输入传输到指定的输出端解多路复用器的基本概念解多路复用器接受一个数据输入若干个选择输入并生成多个输出选择输入决定了哪个输出线被激活并传输数据输入信号工作原理输入和输出关系数据输入单个输入信号例如选择输入决定数据输入信号被传输到哪个输出例如其中输出多个输出信号例如选择逻辑解多路复用器使用选择输入信号来选择其中一个输出并将数据输入信号连接到该输出根据选择输入的二进制值的输入端连接到对应的输出端示例解多路复用器假设有个数据输入个选择输入和个输出选择输入选择输入激活的输出输出逻辑逻辑表达式解多路复用器的实际应用数据分配解多路复用器用于将单一的数据输入信号分配到多个输出设备或线路中信号路由在通信系统中解多路复用器用于信号的分配选择将输入信号路由到特定的输出通道存储器地址解码在存储器系统中解多路复用器用于地址解码将地址信号分配到相应的存储单元例子双解多路复用器输入单个数据输入两个选择输入输出四个输出特点具有两个独立的解多路复用器可以分别控制两个数据输入的分配解多路复用器的电路实现解多路复用器通常使用与门和非门来实现以下是解多路复用器的电路实现示例选择输入和数据输入输出使用两个选择输入和的组合生成选择控制信号将数据输入与选择控制信号通过与门相连接生成部分选择信号将各个与门的输出连接到相应的输出线实现数据输入的分配通过这种方式解多路复用器可以实现将单一输入信号分配到多个输出的功能广泛应用于数字电路设计中',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-02 10:54:08',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="迟然" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">个人主页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://twitter.com/Cheerful_Chen/" title="Twitter"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPdvU.png" alt="Twitter"/><span class="back-menu-item-text">Twitter</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">联系方式</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://t.me/cheerfulchen/" title="Telegram"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPscY.png" alt="Telegram"/><span class="back-menu-item-text">Telegram</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">迟然</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8975672819&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/CPT102/" style="font-size: 1.05rem;">CPT102<sup>3</sup></a><a href="/tags/CPT103/" style="font-size: 1.05rem;">CPT103<sup>2</sup></a><a href="/tags/EEE104/" style="font-size: 1.05rem;">EEE104<sup>3</sup></a><a href="/tags/INT104/" style="font-size: 1.05rem;">INT104<sup>2</sup></a><a href="/tags/MySQL/" style="font-size: 1.05rem;">MySQL<sup>2</sup></a><a href="/tags/Python/" style="font-size: 1.05rem;">Python<sup>3</sup></a><a href="/tags/%E4%B8%8A%E7%BD%91/" style="font-size: 1.05rem;">上网<sup>1</sup></a><a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 1.05rem;">二进制<sup>3</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">学习<sup>10</sup></a><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">杂谈<sup>3</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>3</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/" itemprop="url">大学生涯</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>学习</span></a><a class="article-meta__tags" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>二进制</span></a><a class="article-meta__tags" href="/tags/EEE104/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>EEE104</span></a></span></div></div><h1 class="post-title" itemprop="name headline">EEE104-Lecture 3</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-06-02T02:49:45.000Z" title="发表于 2024-06-02 10:49:45">2024-06-02</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-06-02T02:54:08.974Z" title="更新于 2024-06-02 10:54:08">2024-06-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">3.9k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="EEE104-Lecture 3"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为苏州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>苏州</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/06/02/EEE104-Lecture%203/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://ooo.0x0.ooo/2024/06/02/OJHjcM.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2024/06/02/EEE104-Lecture%203/"><header><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/" itemprop="url">大学生涯</a><a href="/tags/%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url">学习</a><a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" tabindex="-1" itemprop="url">二进制</a><a href="/tags/EEE104/" tabindex="-1" itemprop="url">EEE104</a><h1 id="CrawlerTitle" itemprop="name headline">EEE104-Lecture 3</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">迟然</span><time itemprop="dateCreated datePublished" datetime="2024-06-02T02:49:45.000Z" title="发表于 2024-06-02 10:49:45">2024-06-02</time><time itemprop="dateCreated datePublished" datetime="2024-06-02T02:54:08.974Z" title="更新于 2024-06-02 10:54:08">2024-06-02</time></header><h1 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h1><p>比较器是一种组合逻辑电路，用于比较两个二进制数的大小。比较器可以分为相等比较器和不等比较器。以下是比较器的工作原理：</p>
+<h3 id="1-相等比较器"><a href="#1-相等比较器" class="headerlink" title="1. 相等比较器"></a>1. 相等比较器</h3><p>相等比较器用于判断两个输入是否相等。一个简单的相等比较器可以使用异或（XOR）门来实现。</p>
+<ul>
+<li><p><strong>1位相等比较器</strong>：</p>
+<ul>
+<li>输入：A 和 B</li>
+<li>输出：如果 A 和 B 相等，输出为1；否则为0。</li>
+<li>实现方法：使用一个异或门。如果 A 和 B 相等，A XOR B 的输出为0。然后取反，可以得到相等比较器的输出。</li>
+</ul>
+</li>
+<li><p><strong>多位相等比较器</strong>：</p>
+<ul>
+<li>输入：多个位的二进制数，例如 $A &#x3D; A_3A_2A_1A_0$ 和 $B &#x3D; B_3B_2B_1B_0$。</li>
+<li>输出：如果所有对应位相等，输出为1；否则为0。</li>
+<li>实现方法：将每个位对使用异或门比较，然后将所有异或门的输出输入到一个与（AND）门。如果所有位相等，异或门的输出都为0，与门的输出为1。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-不等比较器"><a href="#2-不等比较器" class="headerlink" title="2. 不等比较器"></a>2. 不等比较器</h3><p>不等比较器用于判断两个输入数的大小关系（大于、小于或等于）。通常使用逐位比较的方法。</p>
+<ul>
+<li><strong>多位不等比较器</strong>：<ul>
+<li>输入：多个位的二进制数，例如 $A &#x3D; A_3A_2A_1A_0$ 和 $B &#x3D; B_3B_2B_1B_0$。</li>
+<li>输出：A &gt; B、A &lt; B 或 A &#x3D; B。</li>
+<li>实现方法：从最高位开始比较。如果最高位的比较结果不相等，则高位决定大小关系；如果相等，则继续比较下一位，直到找到不同位或者比较完所有位。</li>
+</ul>
+</li>
+</ul>
+<p>例如，74HC85 是一个常用的 4位不等比较器，其工作方式如下：</p>
+<ol>
+<li><p><strong>比较最高位</strong>：</p>
+<ul>
+<li>检查 $A_3$ 和 $B_3$：<ul>
+<li>如果 $A_3 &gt; B_3$，则 A &gt; B。</li>
+<li>如果 $A_3 &lt; B_3$，则 A &lt; B。</li>
+<li>如果 $A_3 &#x3D; B_3$，继续比较下一位。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>逐位比较</strong>：</p>
+<ul>
+<li>重复上述过程，依次比较 $A_2$ 和 $B_2$、$A_1$ 和 $B_1$、$A_0$ 和 $B_0$。</li>
+<li>如果所有位都相等，则 A &#x3D; B。</li>
+</ul>
+</li>
+<li><p><strong>实现电路</strong>：</p>
+<ul>
+<li>使用级联的比较电路进行逐位比较。</li>
+<li>74HC85 具有级联输入和输出，可以实现多位数的比较，通过连接多个74HC85实现更高位的比较。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-不等比较器的例子"><a href="#3-不等比较器的例子" class="headerlink" title="3. 不等比较器的例子"></a>3. 不等比较器的例子</h3><p>具体实现一个 4位不等比较器（如 74HC85）的电路逻辑：</p>
+<ul>
+<li>输入：A 和 B 的每个位 $A_3A_2A_1A_0$ 和 $B_3B_2B_1B_0$。</li>
+<li>输出：A &gt; B、A &lt; B 和 A &#x3D; B。</li>
+<li>逻辑：<ul>
+<li>对于每一位，使用以下逻辑：<ul>
+<li>$A_i &gt; B_i$：输出1，表示 A &gt; B。</li>
+<li>$A_i &lt; B_i$：输出1，表示 A &lt; B。</li>
+<li>如果 $A_i &#x3D; B_i$，则检查下一位。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>通过组合这些逻辑门，可以设计一个完整的比较器电路，用于判断两个二进制数的大小关系。这些比较器在数字电路中广泛用于排序、选择和控制逻辑中。</p>
+<h1 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h1><p>解码器是一种组合逻辑电路，用于将编码的数据转换成指定的输出信号。它的工作原理是根据输入的二进制编码，激活唯一的输出线。以下是解码器的详细工作原理和示例：</p>
+<h3 id="解码器的基本概念"><a href="#解码器的基本概念" class="headerlink" title="解码器的基本概念"></a>解码器的基本概念</h3><p>解码器接受 n 位二进制输入，并生成 2^n 个输出。每一个输出对应于输入的一个唯一的二进制组合。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
+<li><p><strong>输入和输出关系</strong>：</p>
+<ul>
+<li>输入：n 位二进制数（例如 $A_{n-1}A_{n-2}…A_0$）。</li>
+<li>输出：2^n 个输出线中的一个被激活（例如 $Y_0, Y_1, …, Y_{2^n-1}$）。</li>
+<li>当输入的二进制数对应某一个输出时，该输出线被激活（输出1），其他输出线保持不激活（输出0）。</li>
+</ul>
+</li>
+<li><p><strong>逻辑实现</strong>：</p>
+<ul>
+<li>解码器使用逻辑与门（AND gates）和非门（NOT gates）实现输入到输出的映射。</li>
+<li>每一个输出对应于一个唯一的输入组合。</li>
+<li>非门用于将输入的某些位取反，以实现正确的逻辑组合。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例：2位输入的4线解码器（2-to-4-Decoder）"><a href="#示例：2位输入的4线解码器（2-to-4-Decoder）" class="headerlink" title="示例：2位输入的4线解码器（2-to-4 Decoder）"></a>示例：2位输入的4线解码器（2-to-4 Decoder）</h3><p>假设有2位输入 $A_1$ 和 $A_0$，输出为 $Y_0, Y_1, Y_2, Y_3$。</p>
+<table>
+<thead>
+<tr>
+<th>$A_1$</th>
+<th>$A_0$</th>
+<th>$Y_0$</th>
+<th>$Y_1$</th>
+<th>$Y_2$</th>
+<th>$Y_3$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$Y_0 &#x3D; \overline{A_1} \cdot \overline{A_0}$</li>
+<li>$Y_1 &#x3D; \overline{A_1} \cdot A_0$</li>
+<li>$Y_2 &#x3D; A_1 \cdot \overline{A_0}$</li>
+<li>$Y_3 &#x3D; A_1 \cdot A_0$</li>
+</ul>
+</li>
+</ul>
+<h3 id="4位输入的16线解码器（4-to-16-Decoder）"><a href="#4位输入的16线解码器（4-to-16-Decoder）" class="headerlink" title="4位输入的16线解码器（4-to-16 Decoder）"></a>4位输入的16线解码器（4-to-16 Decoder）</h3><p>假设有4位输入 $A_3, A_2, A_1, A_0$，输出为 $Y_0, Y_1, …, Y_{15}$。</p>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$Y_0 &#x3D; \overline{A_3} \cdot \overline{A_2} \cdot \overline{A_1} \cdot \overline{A_0}$</li>
+<li>$Y_1 &#x3D; \overline{A_3} \cdot \overline{A_2} \cdot \overline{A_1} \cdot A_0$</li>
+<li>$Y_2 &#x3D; \overline{A_3} \cdot \overline{A_2} \cdot A_1 \cdot \overline{A_0}$</li>
+<li>$…$</li>
+<li>$Y_{15} &#x3D; A_3 \cdot A_2 \cdot A_1 \cdot A_0$</li>
+</ul>
+</li>
+</ul>
+<h3 id="特殊解码器"><a href="#特殊解码器" class="headerlink" title="特殊解码器"></a>特殊解码器</h3><ol>
+<li><p><strong>BCD到7段显示解码器</strong>：</p>
+<ul>
+<li>将BCD码（Binary-Coded Decimal）转换为7段显示器的控制信号。</li>
+<li>每个输出对应7段显示器的一个段（a-g）的点亮状态。</li>
+</ul>
+</li>
+<li><p><strong>多级解码器</strong>：</p>
+<ul>
+<li>通过级联多个解码器实现更高位数的解码。例如，使用两个4-to-16解码器可以实现5位输入的解码。</li>
+</ul>
+</li>
+</ol>
+<h3 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h3><p>解码器在数字电路中有广泛的应用，包括：</p>
+<ul>
+<li>地址解码：在存储器中选择特定的存储单元。</li>
+<li>数据选择：在多路复用器中选择特定的数据路径。</li>
+<li>显示驱动：控制7段显示器或其他显示设备。</li>
+</ul>
+<h3 id="例子：74HC154-4线到16线解码器"><a href="#例子：74HC154-4线到16线解码器" class="headerlink" title="例子：74HC154 4线到16线解码器"></a>例子：74HC154 4线到16线解码器</h3><ul>
+<li><strong>输入</strong>：4位输入 $A_3, A_2, A_1, A_0$。</li>
+<li><strong>输出</strong>：16条输出线中的一条被激活。</li>
+<li><strong>特点</strong>：具有使能输入（chip select），可以通过使能输入选择是否激活解码器。</li>
+</ul>
+<p>通过以上描述可以看出，解码器的核心工作原理是将输入的二进制编码转换成唯一的输出信号，这一过程主要依赖逻辑与门和非门的组合来实现。</p>
+<h1 id="编码器"><a href="#编码器" class="headerlink" title="编码器"></a>编码器</h1><p>编码器是一种组合逻辑电路，用于将输入信号转换为二进制编码输出。与解码器的工作方式相反，编码器将多个输入信号中的一个高电平信号转换为相应的二进制编码。以下是编码器的工作原理及其应用。</p>
+<h3 id="编码器的基本概念"><a href="#编码器的基本概念" class="headerlink" title="编码器的基本概念"></a>编码器的基本概念</h3><p>编码器接受 2^n 个输入信号，并生成 n 位二进制输出。每一个输出编码代表一个唯一的输入信号。</p>
+<h3 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
+<li><p><strong>输入和输出关系</strong>：</p>
+<ul>
+<li>输入：2^n 个信号线，其中只有一条信号线处于高电平（逻辑1）。</li>
+<li>输出：n 位二进制数，对应于高电平输入信号的位置。</li>
+</ul>
+</li>
+<li><p><strong>逻辑实现</strong>：</p>
+<ul>
+<li>编码器使用逻辑或门（OR gates）来实现输入到输出的映射。</li>
+<li>每一个输出位由多个输入信号通过或门组合而成。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例：4-to-2-优先编码器（4-to-2-Priority-Encoder）"><a href="#示例：4-to-2-优先编码器（4-to-2-Priority-Encoder）" class="headerlink" title="示例：4-to-2 优先编码器（4-to-2 Priority Encoder）"></a>示例：4-to-2 优先编码器（4-to-2 Priority Encoder）</h3><p>假设有4个输入 $D_3, D_2, D_1, D_0$ 和2位输出 $A_1, A_0$。</p>
+<table>
+<thead>
+<tr>
+<th>输入 $D_3$</th>
+<th>输入 $D_2$</th>
+<th>输入 $D_1$</th>
+<th>输入 $D_0$</th>
+<th>输出 $A_1$</th>
+<th>输出 $A_0$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$A_1 &#x3D; D_3$ 或 $D_2$</li>
+<li>$A_0 &#x3D; D_3$ 或 $D_1$</li>
+</ul>
+</li>
+</ul>
+<h3 id="优先编码器"><a href="#优先编码器" class="headerlink" title="优先编码器"></a>优先编码器</h3><p>优先编码器是一种特殊的编码器，它处理多个输入同时为高电平的情况，优先编码器选择具有最高优先级的输入进行编码。</p>
+<p>例如，4-to-2 优先编码器的逻辑如下：</p>
+<ul>
+<li><strong>输入</strong>： $D_3, D_2, D_1, D_0$ （优先级从高到低）</li>
+<li><strong>输出</strong>： $A_1, A_0$</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>输入 $D_3$</th>
+<th>输入 $D_2$</th>
+<th>输入 $D_1$</th>
+<th>输入 $D_0$</th>
+<th>输出 $A_1$</th>
+<th>输出 $A_0$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$A_1 &#x3D; D_3$ 或 $(D_2 和 \overline{D_3})$</li>
+<li>$A_0 &#x3D; D_3$ 或 $(D_1 和 \overline{D_3} 和 \overline{D_2})$</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例：十进制到BCD编码器（Decimal-to-BCD-Encoder）"><a href="#示例：十进制到BCD编码器（Decimal-to-BCD-Encoder）" class="headerlink" title="示例：十进制到BCD编码器（Decimal-to-BCD Encoder）"></a>示例：十进制到BCD编码器（Decimal-to-BCD Encoder）</h3><p>假设有10个输入 $D_9, D_8, D_7, …, D_0$ 和4位BCD输出 $B_3, B_2, B_1, B_0$。</p>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$B_3 &#x3D; D_8$ 或 $D_9$</li>
+<li>$B_2 &#x3D; D_4$ 或 $D_5$ 或 $D_6$ 或 $D_7$</li>
+<li>$B_1 &#x3D; D_2$ 或 $D_3$ 或 $D_6$ 或 $D_7$</li>
+<li>$B_0 &#x3D; D_1$ 或 $D_3$ 或 $D_5$ 或 $D_7$ 或 $D_9$</li>
+</ul>
+</li>
+</ul>
+<h3 id="实际应用-1"><a href="#实际应用-1" class="headerlink" title="实际应用"></a>实际应用</h3><p>编码器在数字系统中有许多实际应用，包括：</p>
+<ul>
+<li><strong>键盘编码器</strong>：将按键输入转换为相应的二进制编码。</li>
+<li><strong>地址编码器</strong>：将存储器地址转换为编码信号。</li>
+<li><strong>传感器数据编码</strong>：将来自多个传感器的信号转换为二进制编码，用于进一步处理。</li>
+</ul>
+<h3 id="例子：74HC147-十进制到BCD优先编码器"><a href="#例子：74HC147-十进制到BCD优先编码器" class="headerlink" title="例子：74HC147 十进制到BCD优先编码器"></a>例子：74HC147 十进制到BCD优先编码器</h3><ul>
+<li><strong>输入</strong>：10个输入 $D_9, D_8, …, D_0$，仅一个为高电平。</li>
+<li><strong>输出</strong>：4位BCD码 $B_3, B_2, B_1, B_0$，表示高电平输入的位置。</li>
+<li><strong>特点</strong>：优先编码功能，多个输入为高电平时，优先输出最高位的编码。</li>
+</ul>
+<p>通过以上描述可以看出，编码器的核心工作原理是将多个输入信号中的一个高电平信号转换为对应的二进制编码输出，这一过程主要依赖逻辑或门的组合来实现。</p>
+<h1 id="多路复用器"><a href="#多路复用器" class="headerlink" title="多路复用器"></a>多路复用器</h1><p>多路复用器（Multiplexer，简称MUX）是一种组合逻辑电路，用于选择多个输入信号中的一个并将其传输到输出端。它通常被称为数据选择器，因为它根据控制信号（选择信号）来选择哪个输入信号通过到输出端。</p>
+<h3 id="多路复用器的基本概念"><a href="#多路复用器的基本概念" class="headerlink" title="多路复用器的基本概念"></a>多路复用器的基本概念</h3><p>多路复用器具有多个数据输入端、若干个选择输入端和一个输出端。选择输入端决定了哪个数据输入端的信号被传输到输出端。</p>
+<h3 id="工作原理-2"><a href="#工作原理-2" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
+<li><p><strong>输入和输出关系</strong>：</p>
+<ul>
+<li>输入：多个数据输入（例如 $D_0, D_1, D_2, …, D_{n-1}$）。</li>
+<li>选择输入：决定选择哪个数据输入（例如 $S_0, S_1, …, S_m$，其中 $m &#x3D; \log_2(n)$）。</li>
+<li>输出：单个输出（Y）。</li>
+</ul>
+</li>
+<li><p><strong>选择逻辑</strong>：</p>
+<ul>
+<li>多路复用器使用选择输入信号来选择其中一个数据输入并将其连接到输出。</li>
+<li>根据选择输入的二进制值，MUX的输出端连接到对应的输入端。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例：2-to-1-多路复用器"><a href="#示例：2-to-1-多路复用器" class="headerlink" title="示例：2-to-1 多路复用器"></a>示例：2-to-1 多路复用器</h3><p>假设有2个数据输入 $D_0$ 和 $D_1$，1个选择输入 $S$，和1个输出 $Y$。</p>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$Y &#x3D; \overline{S} \cdot D_0 + S \cdot D_1$</li>
+<li>当 $S &#x3D; 0$ 时，$Y &#x3D; D_0$。</li>
+<li>当 $S &#x3D; 1$ 时，$Y &#x3D; D_1$。</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例：4-to-1-多路复用器"><a href="#示例：4-to-1-多路复用器" class="headerlink" title="示例：4-to-1 多路复用器"></a>示例：4-to-1 多路复用器</h3><p>假设有4个数据输入 $D_0, D_1, D_2, D_3$，2个选择输入 $S_1$ 和 $S_0$，1个输出 $Y$。</p>
+<table>
+<thead>
+<tr>
+<th>选择输入 $S_1$</th>
+<th>选择输入 $S_0$</th>
+<th>输出 $Y$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>$D_0$</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>$D_1$</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>$D_2$</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>$D_3$</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$Y &#x3D; \overline{S_1} \cdot \overline{S_0} \cdot D_0 + \overline{S_1} \cdot S_0 \cdot D_1 + S_1 \cdot \overline{S_0} \cdot D_2 + S_1 \cdot S_0 \cdot D_3$</li>
+</ul>
+</li>
+</ul>
+<h3 id="多路复用器的实际应用"><a href="#多路复用器的实际应用" class="headerlink" title="多路复用器的实际应用"></a>多路复用器的实际应用</h3><ol>
+<li><p><strong>数据选择</strong>：</p>
+<ul>
+<li>多路复用器可以选择不同的数据源传输到处理器或其他电路中。</li>
+</ul>
+</li>
+<li><p><strong>信号路由</strong>：</p>
+<ul>
+<li>在通信系统中，多路复用器可以用于信号的路由选择，将多个信号通过一个通道传输。</li>
+</ul>
+</li>
+<li><p><strong>逻辑函数实现</strong>：</p>
+<ul>
+<li>多路复用器可以用于实现任意逻辑函数。例如，通过设置不同的选择输入，可以实现特定的逻辑组合。</li>
+</ul>
+</li>
+</ol>
+<h3 id="例子：74HC151-8-to-1-多路复用器"><a href="#例子：74HC151-8-to-1-多路复用器" class="headerlink" title="例子：74HC151 8-to-1 多路复用器"></a>例子：74HC151 8-to-1 多路复用器</h3><ul>
+<li><strong>输入</strong>：8个数据输入 $D_0, D_1, …, D_7$，3个选择输入 $S_2, S_1, S_0$。</li>
+<li><strong>输出</strong>：单个输出 $Y$。</li>
+<li><strong>特点</strong>：74HC151 可以根据选择输入将一个数据输入传输到输出端，具有使能输入来控制多路复用器是否工作。</li>
+</ul>
+<h3 id="多路复用器的电路实现"><a href="#多路复用器的电路实现" class="headerlink" title="多路复用器的电路实现"></a>多路复用器的电路实现</h3><p>多路复用器通常使用与门（AND gates）、或门（OR gates）和非门（NOT gates）来实现。以下是4-to-1多路复用器的电路实现示例：</p>
+<ul>
+<li><strong>选择输入</strong>： $S_1$ 和 $S_0$</li>
+<li><strong>数据输入</strong>： $D_0, D_1, D_2, D_3$</li>
+<li><strong>输出</strong>： $Y$</li>
+</ul>
+<ol>
+<li>使用两个选择输入 $S_1$ 和 $S_0$ 的组合生成选择控制信号。</li>
+<li>将选择控制信号与数据输入通过与门相连接，生成部分选择信号。</li>
+<li>将所有部分选择信号通过或门组合，生成最终输出信号。</li>
+</ol>
+<p>通过这种方式，多路复用器可以实现对多个数据输入的选择和输出控制。多路复用器在数字电路设计中有广泛的应用，尤其在需要选择和路由多个信号的场合。</p>
+<h1 id="解多路复用器"><a href="#解多路复用器" class="headerlink" title="解多路复用器"></a>解多路复用器</h1><p>解多路复用器（Demultiplexer，简称Demux）是一种组合逻辑电路，用于将单一的输入信号分配到多个输出线中的一个。与多路复用器（Mux）相反，解多路复用器根据选择输入信号将数据输入传输到指定的输出端。</p>
+<h3 id="解多路复用器的基本概念"><a href="#解多路复用器的基本概念" class="headerlink" title="解多路复用器的基本概念"></a>解多路复用器的基本概念</h3><p>解多路复用器接受一个数据输入、若干个选择输入，并生成多个输出。选择输入决定了哪个输出线被激活，并传输数据输入信号。</p>
+<h3 id="工作原理-3"><a href="#工作原理-3" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
+<li><p><strong>输入和输出关系</strong>：</p>
+<ul>
+<li><strong>数据输入</strong>：单个输入信号（例如 $D$）。</li>
+<li><strong>选择输入</strong>：决定数据输入信号被传输到哪个输出（例如 $S_0, S_1, …, S_m$，其中 $m &#x3D; \log_2(n)$）。</li>
+<li><strong>输出</strong>：多个输出信号（例如 $Y_0, Y_1, …, Y_{n-1}$）。</li>
+</ul>
+</li>
+<li><p><strong>选择逻辑</strong>：</p>
+<ul>
+<li>解多路复用器使用选择输入信号来选择其中一个输出并将数据输入信号连接到该输出。</li>
+<li>根据选择输入的二进制值，Demux的输入端连接到对应的输出端。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例：1-to-4-解多路复用器"><a href="#示例：1-to-4-解多路复用器" class="headerlink" title="示例：1-to-4 解多路复用器"></a>示例：1-to-4 解多路复用器</h3><p>假设有1个数据输入 $D$，2个选择输入 $S_1, S_0$，和4个输出 $Y_0, Y_1, Y_2, Y_3$。</p>
+<table>
+<thead>
+<tr>
+<th>选择输入 $S_1$</th>
+<th>选择输入 $S_0$</th>
+<th>激活的输出</th>
+<th>输出逻辑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>$Y_0$</td>
+<td>$Y_0 &#x3D; D$</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>$Y_1$</td>
+<td>$Y_1 &#x3D; D$</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>$Y_2$</td>
+<td>$Y_2 &#x3D; D$</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>$Y_3$</td>
+<td>$Y_3 &#x3D; D$</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>逻辑表达式</strong>：<ul>
+<li>$Y_0 &#x3D; \overline{S_1} \cdot \overline{S_0} \cdot D$</li>
+<li>$Y_1 &#x3D; \overline{S_1} \cdot S_0 \cdot D$</li>
+<li>$Y_2 &#x3D; S_1 \cdot \overline{S_0} \cdot D$</li>
+<li>$Y_3 &#x3D; S_1 \cdot S_0 \cdot D$</li>
+</ul>
+</li>
+</ul>
+<h3 id="解多路复用器的实际应用"><a href="#解多路复用器的实际应用" class="headerlink" title="解多路复用器的实际应用"></a>解多路复用器的实际应用</h3><ol>
+<li><p><strong>数据分配</strong>：</p>
+<ul>
+<li>解多路复用器用于将单一的数据输入信号分配到多个输出设备或线路中。</li>
+</ul>
+</li>
+<li><p><strong>信号路由</strong>：</p>
+<ul>
+<li>在通信系统中，解多路复用器用于信号的分配选择，将输入信号路由到特定的输出通道。</li>
+</ul>
+</li>
+<li><p><strong>存储器地址解码</strong>：</p>
+<ul>
+<li>在存储器系统中，解多路复用器用于地址解码，将地址信号分配到相应的存储单元。</li>
+</ul>
+</li>
+</ol>
+<h3 id="例子：74HC139-双1-to-4-解多路复用器"><a href="#例子：74HC139-双1-to-4-解多路复用器" class="headerlink" title="例子：74HC139 双1-to-4 解多路复用器"></a>例子：74HC139 双1-to-4 解多路复用器</h3><ul>
+<li><strong>输入</strong>：单个数据输入 $D$，两个选择输入 $S_1, S_0$。</li>
+<li><strong>输出</strong>：四个输出 $Y_0, Y_1, Y_2, Y_3$。</li>
+<li><strong>特点</strong>：74HC139 具有两个独立的1-to-4解多路复用器，可以分别控制两个数据输入的分配。</li>
+</ul>
+<h3 id="解多路复用器的电路实现"><a href="#解多路复用器的电路实现" class="headerlink" title="解多路复用器的电路实现"></a>解多路复用器的电路实现</h3><p>解多路复用器通常使用与门（AND gates）和非门（NOT gates）来实现。以下是1-to-4解多路复用器的电路实现示例：</p>
+<ul>
+<li><strong>选择输入</strong>： $S_1$ 和 $S_0$</li>
+<li><strong>数据输入</strong>： $D$</li>
+<li><strong>输出</strong>： $Y_0, Y_1, Y_2, Y_3$</li>
+</ul>
+<ol>
+<li>使用两个选择输入 $S_1$ 和 $S_0$ 的组合生成选择控制信号。</li>
+<li>将数据输入与选择控制信号通过与门相连接，生成部分选择信号。</li>
+<li>将各个与门的输出连接到相应的输出线，实现数据输入的分配。</li>
+</ol>
+<p>通过这种方式，解多路复用器可以实现将单一输入信号分配到多个输出的功能，广泛应用于数字电路设计中。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">迟然</div><div class="post-copyright__author_desc">世上的路有很多条.</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2024/06/02/EEE104-Lecture%203/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2024/06/02/EEE104-Lecture%203/')">EEE104-Lecture 3</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2024/06/02/EEE104-Lecture%203/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=EEE104-Lecture 3&amp;url=http://example.com/2024/06/02/EEE104-Lecture%203/&amp;pic=https://ooo.0x0.ooo/2024/06/02/OJHjcM.jpg" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">迟然</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%AD%A6%E4%B9%A0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>学习<span class="tagsPageCount">10</span></a><a class="post-meta__box__tags" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>二进制<span class="tagsPageCount">3</span></a><a class="post-meta__box__tags" href="/tags/EEE104/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>EEE104<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://ooo.0x0.ooo/2024/06/02/OJHjcM.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/06/02/CPT102-Hash%20Table/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/06/02/OJH9Zr.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CPT102-Hash Table</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2024/03/08/EEE104-Lecture%201/" title="EEE104-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYxoL.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-08</div><div class="title">EEE104-Lecture 1</div></div></a></div><div><a href="/2024/05/28/EEE104-Lecture%202/" title="EEE104-Lecture 2"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://s3.bmp.ovh/imgs/2024/05/28/f74a79ab470baa04.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-28</div><div class="title">EEE104-Lecture 2</div></div></a></div><div><a href="/2024/03/08/CPT102-Lecture%200/" title="CPT102-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYzri.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-08</div><div class="title">CPT102-Lecture 1</div></div></a></div><div><a href="/2024/03/05/CPT103-Lecture%201/" title="CPT103-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/05/OyckLK.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-05</div><div class="title">CPT103-Lecture 1</div></div></a></div><div><a href="/2024/03/15/CPT103-Lecture%202/" title="CPT103-Lecture 2"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/15/Og5v9F.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-15</div><div class="title">CPT103-Lecture 2</div></div></a></div><div><a href="/2024/03/04/INT104-Tutorial%201/" title="INT104-Tutorial 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/04/Oyt31P.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-04</div><div class="title">INT104-Tutorial 1</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">一名来自<b style="color:#fff">西交利物浦大学</b>的大二学生。我将在这里分享<b style="color:#fff">课堂知识，课外遐想</b>以及<b style="color:#fff">生活方式</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">欢迎来到我的<b style="color:#fff">博客</b>，请您自由<b style="color:#fff">浏览</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><h1 class="author-info__name">迟然</h1><div class="author-info__desc">世上的路有很多条.</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/cheerfulchen" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/34922511" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%9B%B8%E7%AD%89%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 相等比较器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8D%E7%AD%89%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. 不等比较器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%8D%E7%AD%89%E6%AF%94%E8%BE%83%E5%99%A8%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. 不等比较器的例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">解码器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.0.1.</span> <span class="toc-text">解码器的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.0.2.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A2%E4%BD%8D%E8%BE%93%E5%85%A5%E7%9A%844%E7%BA%BF%E8%A7%A3%E7%A0%81%E5%99%A8%EF%BC%882-to-4-Decoder%EF%BC%89"><span class="toc-number">2.0.3.</span> <span class="toc-text">示例：2位输入的4线解码器（2-to-4 Decoder）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E4%BD%8D%E8%BE%93%E5%85%A5%E7%9A%8416%E7%BA%BF%E8%A7%A3%E7%A0%81%E5%99%A8%EF%BC%884-to-16-Decoder%EF%BC%89"><span class="toc-number">2.0.4.</span> <span class="toc-text">4位输入的16线解码器（4-to-16 Decoder）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="toc-number">2.0.5.</span> <span class="toc-text">特殊解码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">2.0.6.</span> <span class="toc-text">实际应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A74HC154-4%E7%BA%BF%E5%88%B016%E7%BA%BF%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="toc-number">2.0.7.</span> <span class="toc-text">例子：74HC154 4线到16线解码器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">编码器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">3.0.1.</span> <span class="toc-text">编码器的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-1"><span class="toc-number">3.0.2.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A4-to-2-%E4%BC%98%E5%85%88%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%884-to-2-Priority-Encoder%EF%BC%89"><span class="toc-number">3.0.3.</span> <span class="toc-text">示例：4-to-2 优先编码器（4-to-2 Priority Encoder）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">3.0.4.</span> <span class="toc-text">优先编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E5%88%B0BCD%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88Decimal-to-BCD-Encoder%EF%BC%89"><span class="toc-number">3.0.5.</span> <span class="toc-text">示例：十进制到BCD编码器（Decimal-to-BCD Encoder）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8-1"><span class="toc-number">3.0.6.</span> <span class="toc-text">实际应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A74HC147-%E5%8D%81%E8%BF%9B%E5%88%B6%E5%88%B0BCD%E4%BC%98%E5%85%88%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">3.0.7.</span> <span class="toc-text">例子：74HC147 十进制到BCD优先编码器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">多路复用器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.0.1.</span> <span class="toc-text">多路复用器的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-2"><span class="toc-number">4.0.2.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A2-to-1-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8"><span class="toc-number">4.0.3.</span> <span class="toc-text">示例：2-to-1 多路复用器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A4-to-1-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8"><span class="toc-number">4.0.4.</span> <span class="toc-text">示例：4-to-1 多路复用器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">4.0.5.</span> <span class="toc-text">多路复用器的实际应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A74HC151-8-to-1-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8"><span class="toc-number">4.0.6.</span> <span class="toc-text">例子：74HC151 8-to-1 多路复用器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8%E7%9A%84%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.0.7.</span> <span class="toc-text">多路复用器的电路实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">解多路复用器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">5.0.1.</span> <span class="toc-text">解多路复用器的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-3"><span class="toc-number">5.0.2.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A1-to-4-%E8%A7%A3%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8"><span class="toc-number">5.0.3.</span> <span class="toc-text">示例：1-to-4 解多路复用器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">5.0.4.</span> <span class="toc-text">解多路复用器的实际应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A74HC139-%E5%8F%8C1-to-4-%E8%A7%A3%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8"><span class="toc-number">5.0.5.</span> <span class="toc-text">例子：74HC139 双1-to-4 解多路复用器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%99%A8%E7%9A%84%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.0.6.</span> <span class="toc-text">解多路复用器的电路实现</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/02/EEE104-Lecture%203/" title="EEE104-Lecture 3"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/06/02/OJHjcM.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EEE104-Lecture 3"/></a><div class="content"><a class="title" href="/2024/06/02/EEE104-Lecture%203/" title="EEE104-Lecture 3">EEE104-Lecture 3</a><time datetime="2024-06-02T02:49:45.000Z" title="发表于 2024-06-02 10:49:45">2024-06-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/02/CPT102-Hash%20Table/" title="CPT102-Hash Table"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/06/02/OJH9Zr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CPT102-Hash Table"/></a><div class="content"><a class="title" href="/2024/06/02/CPT102-Hash%20Table/" title="CPT102-Hash Table">CPT102-Hash Table</a><time datetime="2024-06-02T02:46:03.000Z" title="发表于 2024-06-02 10:46:03">2024-06-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/31/CPT102-%E5%9B%BE%E8%AE%BA/" title="CPT102-图论"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/05/31/OJDMhF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CPT102-图论"/></a><div class="content"><a class="title" href="/2024/05/31/CPT102-%E5%9B%BE%E8%AE%BA/" title="CPT102-图论">CPT102-图论</a><time datetime="2024-05-31T02:24:38.000Z" title="发表于 2024-05-31 10:24:38">2024-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/28/EEE104-Lecture%202/" title="EEE104-Lecture 2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://s3.bmp.ovh/imgs/2024/05/28/f74a79ab470baa04.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EEE104-Lecture 2"/></a><div class="content"><a class="title" href="/2024/05/28/EEE104-Lecture%202/" title="EEE104-Lecture 2">EEE104-Lecture 2</a><time datetime="2024-05-28T07:20:34.000Z" title="发表于 2024-05-28 15:20:34">2024-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/15/CPT103-Lecture%202/" title="CPT103-Lecture 2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/15/Og5v9F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CPT103-Lecture 2"/></a><div class="content"><a class="title" href="/2024/03/15/CPT103-Lecture%202/" title="CPT103-Lecture 2">CPT103-Lecture 2</a><time datetime="2024-03-15T13:25:23.000Z" title="发表于 2024-03-15 21:25:23">2024-03-15</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2023 - 2024 By <a class="footer-bar-link" href="/" title="迟然" target="_blank">迟然</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">2</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">个人主页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://twitter.com/Cheerful_Chen/" title="Twitter"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPdvU.png" alt="Twitter"/><span class="back-menu-item-text">Twitter</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">联系方式</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://t.me/cheerfulchen/" title="Telegram"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPscY.png" alt="Telegram"/><span class="back-menu-item-text">Telegram</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8975672819&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/CPT102/" style="font-size: 0.88rem;">CPT102<sup>3</sup></a><a href="/tags/CPT103/" style="font-size: 0.88rem;">CPT103<sup>2</sup></a><a href="/tags/EEE104/" style="font-size: 0.88rem;">EEE104<sup>3</sup></a><a href="/tags/INT104/" style="font-size: 0.88rem;">INT104<sup>2</sup></a><a href="/tags/MySQL/" style="font-size: 0.88rem;">MySQL<sup>2</sup></a><a href="/tags/Python/" style="font-size: 0.88rem;">Python<sup>3</sup></a><a href="/tags/%E4%B8%8A%E7%BD%91/" style="font-size: 0.88rem;">上网<sup>1</sup></a><a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 0.88rem;">二进制<sup>3</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">学习<sup>10</sup></a><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">杂谈<sup>3</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>3</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8975672819" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/my/m/music/playlist?id=8975672819&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("03/02/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2023 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 迟然 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
