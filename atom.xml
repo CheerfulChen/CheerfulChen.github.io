@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-06-02T02:54:08.974Z</updated>
+  <updated>2025-01-04T12:18:11.936Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://example.com/2025/01/04/test/"/>
+    <id>http://example.com/2025/01/04/test/</id>
+    <published>2025-01-04T12:15:23.000Z</published>
+    <updated>2025-01-04T12:18:11.936Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个行内公式 $a^2 + b^2 &#x3D; c^2$。<br>这是一个行内公式 (\alpha + \beta &#x3D; \gamma)。</p><p>$$<br>a^2 + b^2 &#x3D; c^2<br>$$</p><p>[<br>E &#x3D; mc^2<br>]</p><p>\begin{equation}<br>\int_a^b f(x) , dx &#x3D; F(b) - F(a)<br>\end{equation}</p><p>\begin{align}<br>a + b &amp;&#x3D; c \<br>d + e &amp;&#x3D; f<br>\end{align}</p><p>\begin{align}<br>x + y &amp;&#x3D; z \<br>y - z &amp;&#x3D; x<br>\end{align}</p><p>\begin{gather}<br>a &#x3D; b + c \<br>d &#x3D; e + f<br>\end{gather}</p><p>f(x) &#x3D;<br>\begin{cases}<br>x^2 &amp; \text{if } x &gt; 0, \<br>0 &amp; \text{if } x \leq 0.<br>\end{cases}</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这是一个行内公式 $a^2 + b^2 &amp;#x3D; c^2$。&lt;br&gt;这是一个行内公式 (&#92;alpha + &#92;beta &amp;#x3D; &#92;gamma)。&lt;/p&gt;
+&lt;p&gt;$$&lt;br&gt;a^2 + b^2 &amp;#x3D; c^2&lt;br&gt;$$&lt;/p&gt;
+&lt;p&gt;[&lt;br&gt;E &amp;#x3D;</summary>
+      
+    
+    
+    
+    
+    <category term="test" scheme="http://example.com/tags/test/"/>
+    
+  </entry>
   
   <entry>
     <title>EEE104-Lecture 3</title>
@@ -359,7 +383,7 @@
     <link href="http://example.com/2024/03/02/%E5%B1%9E%E4%BA%8E%E8%BF%9F%E7%84%B6%E7%9A%84Hello%20World/"/>
     <id>http://example.com/2024/03/02/%E5%B1%9E%E4%BA%8E%E8%BF%9F%E7%84%B6%E7%9A%84Hello%20World/</id>
     <published>2024-03-02T09:10:32.000Z</published>
-    <updated>2024-03-03T14:10:56.115Z</updated>
+    <updated>2025-01-04T12:18:21.456Z</updated>
     
     <content type="html"><![CDATA[<p>似水流年，花开花落。<br>不知不觉，我已寒窗苦读十四年。但我真的学到了什么东西吗？我不知道。所以我创建了这个blog，为了我当下的学习过程，也想向大家分享我的生活。<br>我并不知道我的未来是什么样的，作为一个p人，我没有也不会去刻意地规划。对于这个blog，当然也是对我自己，就请自然生长吧！</p><h2 id="敬请期待我的小作文"><a href="#敬请期待我的小作文" class="headerlink" title="敬请期待我的小作文"></a>敬请期待我的小作文</h2>]]></content>
     
