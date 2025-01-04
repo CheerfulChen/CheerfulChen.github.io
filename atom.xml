@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-01-04T12:18:11.936Z</updated>
+  <updated>2024-06-02T02:54:08.974Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://example.com/2025/01/04/test/"/>
-    <id>http://example.com/2025/01/04/test/</id>
-    <published>2025-01-04T12:15:23.000Z</published>
-    <updated>2025-01-04T12:18:11.936Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是一个行内公式 $a^2 + b^2 &#x3D; c^2$。<br>这是一个行内公式 (\alpha + \beta &#x3D; \gamma)。</p><p>$$<br>a^2 + b^2 &#x3D; c^2<br>$$</p><p>[<br>E &#x3D; mc^2<br>]</p><p>\begin{equation}<br>\int_a^b f(x) , dx &#x3D; F(b) - F(a)<br>\end{equation}</p><p>\begin{align}<br>a + b &amp;&#x3D; c \<br>d + e &amp;&#x3D; f<br>\end{align}</p><p>\begin{align}<br>x + y &amp;&#x3D; z \<br>y - z &amp;&#x3D; x<br>\end{align}</p><p>\begin{gather}<br>a &#x3D; b + c \<br>d &#x3D; e + f<br>\end{gather}</p><p>f(x) &#x3D;<br>\begin{cases}<br>x^2 &amp; \text{if } x &gt; 0, \<br>0 &amp; \text{if } x \leq 0.<br>\end{cases}</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这是一个行内公式 $a^2 + b^2 &amp;#x3D; c^2$。&lt;br&gt;这是一个行内公式 (&#92;alpha + &#92;beta &amp;#x3D; &#92;gamma)。&lt;/p&gt;
-&lt;p&gt;$$&lt;br&gt;a^2 + b^2 &amp;#x3D; c^2&lt;br&gt;$$&lt;/p&gt;
-&lt;p&gt;[&lt;br&gt;E &amp;#x3D;</summary>
-      
-    
-    
-    
-    
-    <category term="test" scheme="http://example.com/tags/test/"/>
-    
-  </entry>
   
   <entry>
     <title>EEE104-Lecture 3</title>
