@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-06-02T02:54:08.974Z</updated>
+  <updated>2025-01-04T12:44:22.294Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CPT205-光与材质</title>
+    <link href="http://example.com/2025/01/04/CPT205-%E5%85%89%E4%B8%8E%E6%9D%90%E8%B4%A8/"/>
+    <id>http://example.com/2025/01/04/CPT205-%E5%85%89%E4%B8%8E%E6%9D%90%E8%B4%A8/</id>
+    <published>2025-01-04T12:43:45.000Z</published>
+    <updated>2025-01-04T12:44:22.294Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="光源"><a href="#光源" class="headerlink" title="光源"></a>光源</h3><ol><li><strong>点光源（Point Light）</strong></li></ol><ul><li>模型简单，用RGB三个分量指定单一颜色发射辐射能。</li><li>离场景不太近的大光源可视为点光源，光线从光源位置沿径向发散。</li></ul><ol start="2"><li><strong>方向光（Directional Light）</strong></li></ol><ul><li>也叫无限远&#x2F;平行光，光线平行。 </li><li>离场景很远的大光源（如太阳）可近似为点光源，但方向效果变化小。</li></ul><ol start="3"><li><strong>聚光灯（Spot Light）</strong></li></ol><ul><li>由局部光源改造，可设置方向向量、角度限制、位置和颜色，物体在光源方向限制外不被照亮。</li></ul><h3 id="光照效果"><a href="#光照效果" class="headerlink" title="光照效果"></a>光照效果</h3><ol><li><strong>环境光（Ambient Light）</strong></li></ol><ul><li>是一种通用背景非定向照明，使物体显示固有强度，若无不同阴影，物体呈单色轮廓。</li><li>由场景中各种表面反射光产生，撞击表面后向各方向均匀散射，方向难以确定，室内背光环境光成分大，室外聚光灯环境光成分小。</li></ul><ol start="2"><li><strong>漫反射（Diffuse Reflectance）</strong></li></ol><ul><li>光线从一个方向来，垂直照射表面比斜射更亮，撞击表面后向各方向均匀散射，无论眼睛位置在哪，看起来亮度相同。 </li><li>粗糙或颗粒状表面易向各方向散射反射光，影响照明因素包括点光源强度、材料漫反射系数和入射角。</li></ul><ol start="3"><li><strong>镜面反射（Specular Reflectance）</strong></li></ol><ul><li>光线从特定方向来，倾向于在特定方向反射，如激光束从高质量镜子反射。 </li><li>影响因素包括材料镜面反射系数、视角与反射方向的相对角度、光源强度，反射光颜色与光源相同，随着视角偏离反射方向，反射率迅速下降。</li></ul><h3 id="衰减（Attenuation）"><a href="#衰减（Attenuation）" class="headerlink" title="衰减（Attenuation）"></a>衰减（Attenuation）</h3><ol><li>对于点光源，考虑光因距离产生的衰减，距离衰减模型包含常数、线性和二次项，公式为$f(d)&#x3D;\frac{1}{k_{c}+k l d+k_{q}d^{2}}$。 </li><li>方向光因无限远不考虑衰减。</li></ol><h3 id="光照模型与着色"><a href="#光照模型与着色" class="headerlink" title="光照模型与着色"></a>光照模型与着色</h3><ol><li><strong>光照模型（Lighting Model）</strong></li></ol><ul><li>计算物体表面光照位置颜色，考虑透明度、颜色反射系数和纹理参数等光学属性，可应用于每个投影位置或通过插值计算表面颜色。</li></ul><ol start="2"><li><strong>Phong模型</strong></li></ol><ul><li>计算迅速，考虑漫反射、镜面反射和环境光三个分量，使用到光源方向向量、观察方向向量、面法向量和完美反射方向向量四个向量。 </li><li>对于每个点光源有9个系数，与材料属性匹配，模型公式为$I &#x3D; k_{d}I_{d}l \cdot n + k_{s}I_{s}(v \cdot r)^{\alpha}+k_{a}I_{a}$（不含距离项），每个颜色分量需累加所有光源贡献。</li></ul><ol start="3"><li><strong>多边形着色（Polygonal Shading）</strong></li></ol><ul><li><strong>顶点着色（Vertex Shading）</strong>：对每个顶点进行着色计算，顶点颜色可作为顶点属性发送到顶点着色器，或在顶点着色器中计算，默认顶点颜色在传递到片元着色器时进行插值（平滑着色），也可用统一变量进行单一颜色着色（平面着色）。 </li><li><strong>平面（恒定）着色（Flat (Constant) Shading）</strong>：若三个向量（光源方向、观察方向、法向量）恒定，每个多边形只需计算一次着色，多边形上所有点颜色相同，常用于建模光滑表面，但相邻多边形间小的着色差异可能导致效果不佳。 </li><li><strong>平滑（插值）着色（Smooth (Interpolative) Shading）</strong>：光栅化器在多边形上插值顶点颜色，若光源远且无镜面反射或观察者远，多边形以恒定颜色着色。 </li><li><strong>Gouraud着色</strong>：确定多边形顶点法向量（周围网格顶点法向量平均值），使用光照模型计算顶点像素强度，多边形边缘点强度通过顶点值加权平均计算，顶点强度在多边形表面线性插值。</li></ul><h3 id="材质属性"><a href="#材质属性" class="headerlink" title="材质属性"></a>材质属性</h3><ol><li>材质颜色取决于对入射红、绿、蓝光线的反射百分比，如红色球在不同颜色光下的反射情况。 </li><li>材质有环境、漫反射和镜面反射属性，环境反射与入射光源环境光结合，漫反射与光源漫反射光结合，镜面反射同理。环境和漫反射属性定义材质颜色，通常相似，镜面反射通常为白色或灰色，使高光呈现光源镜面强度颜色。 </li><li>漫反射在决定物体颜色感知中最重要，环境反射影响物体整体颜色，环境反射在无直接光照处最明显，漫反射和环境反射不受视点位置影响，镜面反射产生高光，高光强度取决于视点位置。</li></ol><h3 id="OpenGL中的实现"><a href="#OpenGL中的实现" class="headerlink" title="OpenGL中的实现"></a>OpenGL中的实现</h3><ol><li><strong>光源与颜色</strong></li></ol><ul><li>使用<code>glLight*()</code>函数指定光源属性，包括颜色、位置和方向等，函数参数为光源标识、属性和属性值。 </li><li>OpenGL中可设置多种光源属性，如环境光、漫反射光、镜面反射光强度、位置、聚光灯方向、指数、截止角、衰减因子等，默认值各有不同。</li></ul><ol start="2"><li><strong>光源位置与方向</strong></li></ol><ul><li>光源可视为无限远（方向光）或靠近场景（点光源），通过<code>GL_POSITION</code>参数的<code>w</code>值判断，<code>w = 0</code>为方向光，<code>(x, y, z)</code>描述方向；<code>w ≠ 0</code>为点光源，<code>(x, y, z)</code>指定位置，位置和方向会被模型 - 视图矩阵变换。 </li><li>通过改变光源位置设置点，可实现光源固定、绕静止物体移动或随视点移动三种效果。</li></ul><ol start="3"><li><strong>聚光灯</strong></li></ol><ul><li>聚光灯默认关闭（<code>GL_SPOT_CUTOFF</code>为180.0，即向所有方向发光），可设置截止角（范围[0.0, 90.0]，特殊值180.0除外）、指数控制光的集中程度，光强度在锥中心最高，向边缘衰减，方向也会被模型 </li><li>视图矩阵变换。</li></ul><ol start="4"><li><strong>多光源</strong></li></ol><ul><li>OpenGL场景中最多可有8个光源（取决于实现），增加光源数量会影响性能。</li><li>示例代码展示了如何定义点光源和聚光灯，包括设置各种属性并启用光源。</li></ul><ol start="5"><li><strong>全局环境光</strong></li></ol><ul><li>使用<code>GL_LIGHT_MODEL_AMBIENT</code>参数指定全局环境光的RGBA强度，即使场景中无特定光源，也可使物体可见。</li></ul><ol start="6"><li><strong>局部或无限视点</strong></li></ol><ul><li>视点位置影响镜面反射高光计算，局部视点更真实但性能降低，默认是无限视点，可通过<code>glLightModeli()</code>函数切换。</li></ul><ol start="7"><li><strong>双面光照</strong></li></ol><ul><li>通常只设置前向多边形光照条件，后向多边形可能照明不正确，若物体内部表面可见，可通过<code>glMaterial*()</code>函数为前后面提供不同材质属性，该函数用于设置材质属性，参数包括面、属性和属性值，材质属性大多为RGBA颜色，不同面可设置不同属性，alpha值在任何顶点为漫反射材质的alpha值，在颜色索引模式下，RGBA材质属性不适用。</li></ul><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>光照与材质对图形渲染有重要影响，需考虑多种因素，包括光源类型、光照效果、光照模型、着色方法等，结合全局环境光和多光源与材质属性，为减少计算量可应用一些近似方法。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;光源&quot;&gt;&lt;a href=&quot;#光源&quot; class=&quot;headerlink&quot; title=&quot;光源&quot;&gt;&lt;/a&gt;光源&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;点光源（Point Light）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;模型简单，用RGB三</summary>
+      
+    
+    
+    
+    <category term="大学生涯" scheme="http://example.com/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/"/>
+    
+    
+    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="图形学" scheme="http://example.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="CPT205" scheme="http://example.com/tags/CPT205/"/>
+    
+  </entry>
   
   <entry>
     <title>EEE104-Lecture 3</title>
