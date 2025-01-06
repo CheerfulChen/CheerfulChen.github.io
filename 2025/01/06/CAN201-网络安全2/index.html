@@ -1,0 +1,671 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>CAN201-网络安全2 | 迟然</title><meta name="keywords" content="学习,计算机网络,CAN201"><meta name="author" content="迟然,CheerfulChen5@gmail.com"><meta name="copyright" content="迟然"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="CAN201-网络安全2"><meta name="application-name" content="CAN201-网络安全2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="CAN201-网络安全2"><meta property="og:url" content="http://example.com/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/index.html"><meta property="og:site_name" content="迟然"><meta property="og:description" content="认证（Authentication） 认证的目标   认证的主要目标是让一方（例如Bob）能够确认另一方（例如Alice）的身份。这在网络通信中至关重要，因为在网络环境中，双方可能无法直接看到对方，所以需要一种可靠的方法来确保对方的身份真实性。   协议ap1.0的问题   协议ap1.0中，Ali"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://ooo.0x0.ooo/2025/01/06/OEEwxc.jpg"><meta property="article:author" content="迟然"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://ooo.0x0.ooo/2025/01/06/OEEwxc.jpg"><meta name="description" content="认证（Authentication） 认证的目标   认证的主要目标是让一方（例如Bob）能够确认另一方（例如Alice）的身份。这在网络通信中至关重要，因为在网络环境中，双方可能无法直接看到对方，所以需要一种可靠的方法来确保对方的身份真实性。   协议ap1.0的问题   协议ap1.0中，Ali"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: {"enable":true,"ck":"3HfmkISU3x74mfHf","LingQueMonitorID":"3HfmpIL5h0Kwo1Qz"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":17},{"greeting":"18点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":18,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 迟然","link":"链接: ","source":"来源: 迟然","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '迟然',
+  title: 'CAN201-网络安全2',
+  postAI: '',
+  pageFillDescription: '认证（Authentication）, 数字签名（Digital Signatures）, 安全电子邮件（Secure e - mail）, SSL Secure Sockets Layer认证认证的目标认证的主要目标是让一方例如能够确认另一方例如的身份这在网络通信中至关重要因为在网络环境中双方可能无法直接看到对方所以需要一种可靠的方法来确保对方的身份真实性协议的问题协议中仅说来证明自己的身份但在网络中无法直接看到所以攻击者可以简单地宣称自己是这种方式完全无法保证身份的真实性因为没有任何机制来验证声明者是否真的是协议的问题协议中在包含源地址的数据包中声明自己是然而可以通过创建一个欺骗地址的数据包来冒充这意味着仅依靠地址来证明身份是不安全的因为地址可以被伪造攻击者可以轻易地伪装成其他人的地址进行通信协议的问题协议中发送自己的秘密密码来证明身份但存在回放攻击的风险即可以记录的数据包然后在之后的某个时间将其回放给这样会误以为是再次发送的数据包而实际上可能是攻击者在重放之前截获的信息从而导致身份验证被绕过协议的问题协议中发送加密的秘密密码来证明身份然而记录和回放攻击仍然有效因为攻击者可以直接重放加密后的密码数据包无法区分这是实时的密码还是重放的密码所以这种方式也不能有效防止回放攻击协议的改进与问题协议为了证明实时存在引入了一次性随机数发送一个给必须用共享密钥加密并返回由于只有知道共享密钥且是一次性使用的所以可以确保返回加密的一定是本人从而一定程度上避免了回放攻击但它要求双方事先拥有共享对称密钥这在某些情况下可能不太方便或不安全例如密钥的分发和管理可能存在问题协议的改进与安全漏洞协议尝试使用公钥技术来解决认证问题发送一个给用自己的私钥加密后返回通过计算来验证这种方式不需要事先共享对称密钥但存在中间人攻击的安全漏洞可以在中间冒充和截获双方的通信使得和都以为在与对方通信而实际上他们的通信都被控制并且很难检测到这种攻击因为和之间的消息传递看似正常但可以获取所有消息认证部分主要是围绕如何让一方在网络中可靠地证明自己的身份展开从简单的声明身份逐步发展到使用密码加密技术和随机数等但也不断面临新的安全挑战如各种欺骗和攻击手段后续需要不断改进和完善认证机制来保障网络通信的安全数字签名数字签名的概念与功能数字签名类似于手写签名是一种加密技术其主要功能是确定文档的所有者创建者具有可验证性和不可伪造性这意味着接收者如可以向其他人证明某个文档是由特定的发送者如签署的并且没有其他人包括自己能够伪造这个签名从而保证了文档来源的真实性和完整性简单数字签名的过程对于消息通过用自己的私钥加密消息来创建已签名消息例如要发送消息他使用自己的私钥对该消息进行加密生成签名后的消息数字签名的验证过程当收到带有签名的消息和时她通过应用的公钥来验证签名具体操作是计算如果结果等于则可以证明消息是由签名的因为只有拥有对应的私钥来加密消息其他人无法使用的公钥正确解密出原始消息从而实现了对签名者身份的验证同时也确保了消息的完整性即消息在传输过程中没有被篡改这种验证过程还提供了不可抵赖性意味着无法否认他签署了该消息可以将消息和签名作为证据提交给法庭等消息摘要在数字签名中的作用由于对长消息进行公钥加密计算成本较高所以引入了消息摘要消息摘要通过哈希函数应用于消息得到固定大小的消息摘要哈希函数具有多个重要属性如它是多对一的会产生固定大小的消息摘要作为数字指纹并且给定一个消息摘要在计算上几乎不可能找到一个消息使得发送数字签名消息时实际上是对消息摘要进行签名即发送和验证签名时先使用的公钥解密签名得到然后对收到的消息计算哈希值比较两者是否相等若相等则验证通过哈希函数算法常见的哈希函数算法有和广泛使用它通过步过程计算位消息摘要对于任意位字符串很难构造出消息使其哈希值等于也是常用的哈希函数它是美国标准能产生位消息摘要需要注意的是虽然具有一些哈希函数的属性如产生固定长度的摘要位和且是多对一的但它不是一个良好的加密哈希函数因为给定一个消息及其哈希值很容易找到另一个消息具有相同的哈希值这在安全应用中是不可接受的数字签名部分通过使用私钥加密和公钥验证的机制结合消息摘要技术为网络通信中的消息提供了来源认证完整性保证和不可抵赖性同时哈希函数算法的选择也对数字签名的安全性和性能有重要影响安全电子邮件机密性保证当想要向发送机密电子邮件时为保证邮件内容不被他人窃取她首先生成一个随机对称私钥然后她使用对消息进行加密得到接着用的公钥对进行加密得到最后将和都发送给收到后先用自己的私钥解密从而得到再用解密最终恢复出原始消息这种方式利用了对称加密的高效性和非对称加密的密钥分发优势确保只有能够使用自己的私钥获取对称密钥进而解密消息保证了邮件在传输过程中的机密性认证与消息完整性提供为了提供发送者认证和消息完整性使用自己的私钥对消息的哈希值进行签名得到然后她将消息未加密的原文和数字签名一起发送给收到后先使用的公钥对签名进行解密得到然后对收到的消息计算哈希值比较两者是否相等如果相等就可以确认消息是由发送的并且消息在传输过程中没有被篡改从而实现了发送者认证和消息完整性的保证综合考虑机密性认证和完整性当希望同时提供邮件的机密性发送者认证和消息完整性时她会使用三个密钥首先如前面所述生成随机对称私钥来加密消息用的公钥加密然后用自己的私钥对消息的哈希值进行签名这样在接收邮件时可以通过解密得到来解密消息通过验证的数字签名来确认消息的来源和完整性这种综合的方法确保了安全电子邮件在各个方面的安全性防止邮件内容被窃取伪造或篡改保障了邮件通信的安全可靠安全电子邮件部分通过使用对称和非对称加密技术以及数字签名实现了邮件在传输过程中的机密性发送者认证和消息完整性有效地保护了电子邮件通信的安全的概述与重要性是一种广泛部署的安全协议几乎被所有浏览器和服务器所支持在网络安全中起着至关重要的作用例如在进行网上购物时我们常见的协议就是基于实现的它确保了在客户端和服务器之间传输的数据的安全性涉及数十亿的交易金额每年提供了机密性确保数据不被未授权方获取完整性保证数据在传输过程中未被篡改和认证确认通信双方的身份等功能其最初的目标是保障电子商务交易的安全特别是对信用卡号码等敏感信息的加密以及实现服务器认证和可选的客户端认证使得用户在与新商家进行业务往来时能够以最小的麻烦确保交易安全并且它可用于所有应用为应用提供了安全的套接字接口与的关系在协议栈中位于应用层和层之间为应用程序提供了应用编程接口这使得开发人员可以方便地在应用中使用来增强安全性例如在和等编程语言中都有现成的库或类可供使用开发人员可以利用这些库来实现安全的网络通信如安全的网页浏览文件传输等确保数据在应用层和传输层之间的安全传递的工作流程握手阶段和使用各自的证书和私钥进行相互认证并交换共享秘密例如首先建立与的连接然后向发送消息自己的公钥证书以及用的公钥加密的主密钥其中是主密钥是加密后的主密钥这个阶段的目的是确保双方的身份真实性并建立一个安全的通信基础后续的通信都将基于这个共享秘密进行加密和认证密钥派生阶段考虑到使用同一个主密钥进行多种加密操作存在安全风险和使用共享秘密派生一组密钥具体来说从主密钥派生出用于客户端到服务器数据加密的密钥用于客户端到服务器数据的消息认证码密钥用于服务器到客户端数据加密的密钥以及用于服务器到客户端数据的密钥这些密钥是通过密钥派生函数根据主密钥和可能的一些额外随机数据生成的不同的密钥用于不同的加密和认证操作提高了安全性数据传输阶段为了解决将数据加密成连续流可能存在的问题如放置位置和消息完整性检查的时机问题将数据分成一系列记录进行传输每个记录都携带一个消息认证码的计算方式为其中是消息是密钥接收方可以在每个记录到达时对其进行处理通过验证来确保数据的完整性和真实性同时为了防止攻击者捕获和重放记录或重新排序记录在中加入了序列号例如并且为了进一步防止攻击者重放所有记录还可以使用一次性随机数连接关闭阶段为了防止截断攻击如中间人攻击者伪造连接关闭段导致一方认为数据比实际少使用不同的记录类型来安全地关闭连接例如定义类型为数据记录类型为关闭记录并且在的计算中加入记录类型即确保连接关闭的安全性的局限性与存在一些局限性如未明确字段长度未指定具体的加密协议未考虑客户端和服务器的协商需求等为了解决这些问题支持多种密码套件密码套件包括公共密钥算法如对称加密算法如等和算法在通信时客户端会提供它支持的密码套件列表服务器从中选择一个双方通过协商确定使用的加密算法这样可以允许客户端和服务器支持不同的加密算法并在数据传输前共同选择特定的算法以满足不同的安全需求和性能要求的握手过程目的的握手过程有多个重要目的包括服务器认证让客户端确认服务器的身份协商双方就加密算法达成一致建立密钥生成用于后续通信的加密和密钥以及可选的客户端认证在需要时让服务器确认客户端的身份具体步骤客户端发送它支持的算法列表以及客户端随机数服务器从列表中选择算法然后发送回选择的算法服务器证书和服务器随机数客户端验证服务器证书提取服务器的公钥生成预主密钥并用服务器的公钥加密后发送给服务器客户端和服务器独立地根据预主密钥和随机数计算加密和密钥客户端发送所有握手消息的服务器发送所有握手消息的最后两步通过对握手消息进行计算可以保护握手过程免受篡改防止中间人攻击例如如果中间人试图删除客户端提供的较强算法由于最后两步的验证服务器可以检测到握手消息被篡改从而保证了协商过程的安全性此外使用两个随机数分别在客户端和服务器发送的消息中可以防止重放攻击因为每次连接的随机数不同导致加密密钥也不同攻击者重放的消息将无法通过完整性检查部分通过一系列复杂而有序的机制包括握手密钥派生数据传输和连接关闭等阶段以及密码套件的协商为网络通信提供了全面的安全保障确保了数据在网络传输过程中的机密性完整性和认证性是保障网络安全通信的重要技术之一',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-06 14:21:32',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="迟然" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">个人主页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://twitter.com/Cheerful_Chen/" title="Twitter"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPdvU.png" alt="Twitter"/><span class="back-menu-item-text">Twitter</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">联系方式</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://t.me/cheerfulchen/" title="Telegram"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPscY.png" alt="Telegram"/><span class="back-menu-item-text">Telegram</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">迟然</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8975672819&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/CAN201/" style="font-size: 1.05rem;">CAN201<sup>4</sup></a><a href="/tags/CPT102/" style="font-size: 1.05rem;">CPT102<sup>3</sup></a><a href="/tags/CPT103/" style="font-size: 1.05rem;">CPT103<sup>2</sup></a><a href="/tags/CPT205/" style="font-size: 1.05rem;">CPT205<sup>1</sup></a><a href="/tags/EEE104/" style="font-size: 1.05rem;">EEE104<sup>3</sup></a><a href="/tags/INT104/" style="font-size: 1.05rem;">INT104<sup>2</sup></a><a href="/tags/MySQL/" style="font-size: 1.05rem;">MySQL<sup>2</sup></a><a href="/tags/Python/" style="font-size: 1.05rem;">Python<sup>3</sup></a><a href="/tags/%E4%B8%8A%E7%BD%91/" style="font-size: 1.05rem;">上网<sup>1</sup></a><a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 1.05rem;">二进制<sup>3</sup></a><a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 1.05rem;">图形学<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">学习<sup>15</sup></a><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">杂谈<sup>3</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>3</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.05rem;">计算机网络<sup>4</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/" itemprop="url">大学生涯</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>学习</span></a><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>计算机网络</span></a><a class="article-meta__tags" href="/tags/CAN201/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>CAN201</span></a></span></div></div><h1 class="post-title" itemprop="name headline">CAN201-网络安全2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-01-06T05:43:45.000Z" title="发表于 2025-01-06 13:43:45">2025-01-06</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-01-06T06:21:32.867Z" title="更新于 2025-01-06 14:21:32">2025-01-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">4.3k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="CAN201-网络安全2"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为苏州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>苏州</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://ooo.0x0.ooo/2025/01/06/OEEwxc.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/"><header><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%B6%AF/" itemprop="url">大学生涯</a><a href="/tags/%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url">学习</a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" tabindex="-1" itemprop="url">计算机网络</a><a href="/tags/CAN201/" tabindex="-1" itemprop="url">CAN201</a><h1 id="CrawlerTitle" itemprop="name headline">CAN201-网络安全2</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">迟然</span><time itemprop="dateCreated datePublished" datetime="2025-01-06T05:43:45.000Z" title="发表于 2025-01-06 13:43:45">2025-01-06</time><time itemprop="dateCreated datePublished" datetime="2025-01-06T06:21:32.867Z" title="更新于 2025-01-06 14:21:32">2025-01-06</time></header><h1 id="认证（Authentication）"><a href="#认证（Authentication）" class="headerlink" title="认证（Authentication）"></a>认证（Authentication）</h1><ol>
+<li><p><strong>认证的目标</strong> </p>
+<ul>
+<li>认证的主要目标是让一方（例如Bob）能够确认另一方（例如Alice）的身份。这在网络通信中至关重要，因为在网络环境中，双方可能无法直接看到对方，所以需要一种可靠的方法来确保对方的身份真实性。</li>
+</ul>
+</li>
+<li><p><strong>协议ap1.0的问题</strong> </p>
+<ul>
+<li>协议ap1.0中，Alice仅说“I am Alice”来证明自己的身份。但在网络中，Bob无法直接看到Alice，所以攻击者Trudy可以简单地宣称自己是Alice，这种方式完全无法保证身份的真实性，因为没有任何机制来验证声明者是否真的是Alice。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155117.png"></li>
+</ul>
+</li>
+<li><p><strong>协议ap2.0的问题</strong> </p>
+<ul>
+<li>协议ap2.0中，Alice在包含源IP地址的IP数据包中声明自己是Alice。然而，Trudy可以通过创建一个“欺骗”Alice地址的数据包来冒充Alice。这意味着仅依靠IP地址来证明身份是不安全的，因为IP地址可以被伪造，攻击者可以轻易地伪装成其他人的IP地址进行通信。    <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155130.png"></li>
+</ul>
+</li>
+<li><p><strong>协议ap3.0的问题</strong> </p>
+<ul>
+<li>协议ap3.0中，Alice发送自己的秘密密码来证明身份。但存在回放攻击的风险，即Trudy可以记录Alice的数据包，然后在之后的某个时间将其回放给Bob。这样，Bob会误以为是Alice再次发送的数据包，而实际上可能是攻击者在重放之前截获的信息，从而导致身份验证被绕过。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155155.png"></li>
+</ul>
+</li>
+<li><p><strong>协议ap3.1的问题</strong> </p>
+<ul>
+<li>协议ap3.1中，Alice发送加密的秘密密码来证明身份。然而，记录和回放攻击仍然有效，因为攻击者可以直接重放加密后的密码数据包，Bob无法区分这是实时的密码还是重放的密码，所以这种方式也不能有效防止回放攻击。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155209.png"></li>
+</ul>
+</li>
+<li><p><strong>协议ap4.0的改进与问题</strong> </p>
+<ul>
+<li>协议ap4.0为了证明Alice“实时”存在，引入了一次性随机数（nonce）。Bob发送一个nonce $R$给Alice，Alice必须用共享密钥加密$R$并返回。由于只有Alice知道共享密钥且$R$是一次性使用的，所以可以确保返回加密$R$的一定是Alice本人，从而一定程度上避免了回放攻击。但它要求双方事先拥有共享对称密钥，这在某些情况下可能不太方便或不安全，例如密钥的分发和管理可能存在问题。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155242.png"></li>
+</ul>
+</li>
+<li><p><strong>协议ap5.0的改进与安全漏洞</strong> </p>
+<ul>
+<li>协议ap5.0尝试使用公钥技术来解决认证问题。Bob发送一个nonce $R$给Alice，Alice用自己的私钥加密$R$后返回，Bob通过计算$K_{A}^{+}\left(K_{A}^{-}(R)\right)&#x3D;R$来验证。这种方式不需要事先共享对称密钥，但存在中间人攻击（man - in - the - middle attack）的安全漏洞。Trudy可以在中间冒充Alice和Bob，截获双方的通信，使得Bob和Alice都以为在与对方通信，而实际上他们的通信都被Trudy控制，并且很难检测到这种攻击，因为Bob和Alice之间的消息传递看似正常，但Trudy可以获取所有消息。  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155253.png"></li>
+</ul>
+</li>
+</ol>
+<p>认证部分主要是围绕如何让一方在网络中可靠地证明自己的身份展开，从简单的声明身份逐步发展到使用密码、加密技术和随机数等，但也不断面临新的安全挑战，如各种欺骗和攻击手段，后续需要不断改进和完善认证机制来保障网络通信的安全。</p>
+<h1 id="数字签名（Digital-Signatures）"><a href="#数字签名（Digital-Signatures）" class="headerlink" title="数字签名（Digital Signatures）"></a>数字签名（Digital Signatures）</h1><ol>
+<li><p><strong>数字签名的概念与功能</strong> </p>
+<ul>
+<li>数字签名类似于手写签名，是一种加密技术。其主要功能是确定文档的所有者&#x2F;创建者，具有可验证性和不可伪造性。这意味着接收者（如Alice）可以向其他人证明某个文档是由特定的发送者（如Bob）签署的，并且没有其他人（包括Alice自己）能够伪造这个签名，从而保证了文档来源的真实性和完整性。</li>
+</ul>
+</li>
+<li><p><strong>简单数字签名的过程</strong> </p>
+<ul>
+<li>对于消息$m$，Bob通过用自己的私钥$K_{B}^{-}$加密消息来创建“已签名”消息$K_{B}(m)$。例如，Bob要发送消息“Dear Alice, Oh, how I have missed you. I think of you all the time! …(blah blah blah)”，他使用自己的私钥对该消息进行加密，生成签名后的消息。  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155334.png"></li>
+</ul>
+</li>
+<li><p><strong>数字签名的验证过程</strong> </p>
+<ul>
+<li>当Alice收到带有签名的消息$m$和$K_{B}^{-}(m)$时，她通过应用Bob的公钥$K_{B}^{+}$来验证签名。具体操作是计算$K_{B}^{+}(K_{B}^{-}(m))$，如果结果等于$m$，则可以证明消息是由Bob签名的，因为只有Bob拥有对应的私钥来加密消息，其他人无法使用Bob的公钥正确解密出原始消息，从而实现了对签名者身份的验证，同时也确保了消息的完整性，即消息在传输过程中没有被篡改。这种验证过程还提供了不可抵赖性（non - repudiation），意味着Bob无法否认他签署了该消息，Alice可以将消息和签名作为证据提交给法庭等。</li>
+</ul>
+</li>
+<li><p><strong>消息摘要在数字签名中的作用</strong> </p>
+<ul>
+<li>由于对长消息进行公钥加密计算成本较高，所以引入了消息摘要。消息摘要通过哈希函数$H$应用于消息$m$，得到固定大小的消息摘要$H(m)$。哈希函数具有多个重要属性，如它是多对一的（many - to - 1），会产生固定大小的消息摘要（作为数字“指纹”），并且给定一个消息摘要$x$，在计算上几乎不可能找到一个消息$m$使得$x &#x3D; H(m)$。Bob发送数字签名消息时，实际上是对消息摘要进行签名，即发送$H(m)$和$K_{B}^{-}(H(m))$。Alice验证签名时，先使用Bob的公钥解密签名得到$H(m)$，然后对收到的消息$m$计算哈希值，比较两者是否相等，若相等则验证通过。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155355.png"></li>
+</ul>
+</li>
+<li><p><strong>哈希函数算法</strong></p>
+<ul>
+<li>常见的哈希函数算法有MD5和SHA - 1。MD5广泛使用（RFC 1321），它通过4步过程计算128位消息摘要，对于任意128位字符串$x$，很难构造出消息$m$使其MD5哈希值等于$x$。SHA - 1也是常用的哈希函数，它是美国标准（NIST, FIPS PUB 180 - 1），能产生160位消息摘要。需要注意的是，Internet checksum虽然具有一些哈希函数的属性，如产生固定长度的摘要（16位和）且是多对一的，但它不是一个良好的加密哈希函数，因为给定一个消息及其哈希值，很容易找到另一个消息具有相同的哈希值，这在安全应用中是不可接受的。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155405.png"></li>
+</ul>
+</li>
+</ol>
+<p>数字签名部分通过使用私钥加密和公钥验证的机制，结合消息摘要技术，为网络通信中的消息提供了来源认证、完整性保证和不可抵赖性，同时哈希函数算法的选择也对数字签名的安全性和性能有重要影响。</p>
+<h1 id="安全电子邮件（Secure-e-mail）"><a href="#安全电子邮件（Secure-e-mail）" class="headerlink" title="安全电子邮件（Secure e - mail）"></a>安全电子邮件（Secure e - mail）</h1><ol>
+<li><p><strong>机密性保证</strong> </p>
+<ul>
+<li>当Alice想要向Bob发送机密电子邮件$m$时，为保证邮件内容不被他人窃取，她首先生成一个随机对称私钥$K_S$。然后，她使用$K_S$对消息$m$进行加密，得到$K_S(m)$。接着，Alice用Bob的公钥$K_{B}^{+}$对$K_S$进行加密，得到$K_{B}^{+}(K_S)$。最后，Alice将$K_S(m)$和$K_{B}^{+}(K_S)$都发送给Bob。Bob收到后，先用自己的私钥$K_{B}^{-}$解密$K_{B}^{+}(K_S)$，从而得到$K_S$，再用$K_S$解密$K_S(m)$，最终恢复出原始消息$m$。这种方式利用了对称加密的高效性和非对称加密的密钥分发优势，确保只有Bob能够使用自己的私钥获取对称密钥$K_S$，进而解密消息，保证了邮件在传输过程中的机密性。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155425.png"></li>
+</ul>
+</li>
+<li><p><strong>认证与消息完整性提供</strong> </p>
+<ul>
+<li>为了提供发送者认证和消息完整性，Alice使用自己的私钥$K_{A}^{-}$对消息$m$的哈希值$H(m)$进行签名，得到$K_{A}^{-}(H(m))$。然后，她将消息$m$（未加密的原文）和数字签名$K_{A}^{-}(H(m))$一起发送给Bob。Bob收到后，先使用Alice的公钥$K_{A}^{+}$对签名$K_{A}^{-}(H(m))$进行解密，得到$H(m)$，然后对收到的消息$m$计算哈希值$H(m)$，比较两者是否相等。如果相等，Bob就可以确认消息是由Alice发送的，并且消息在传输过程中没有被篡改，从而实现了发送者认证和消息完整性的保证。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155644.png"></li>
+</ul>
+</li>
+<li><p><strong>综合考虑机密性、认证和完整性</strong> </p>
+<ul>
+<li>当Alice希望同时提供邮件的机密性、发送者认证和消息完整性时，她会使用三个密钥。首先，如前面所述，生成随机对称私钥$K_S$来加密消息$m$，用Bob的公钥加密$K_S$。然后，用自己的私钥对消息$m$的哈希值进行签名。这样，Bob在接收邮件时，可以通过解密$K_{B}^{+}(K_S)$得到$K_S$来解密消息，通过验证Alice的数字签名来确认消息的来源和完整性。这种综合的方法确保了安全电子邮件在各个方面的安全性，防止邮件内容被窃取、伪造或篡改，保障了邮件通信的安全可靠。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211155656.png"></li>
+</ul>
+</li>
+</ol>
+<p>安全电子邮件部分通过使用对称和非对称加密技术以及数字签名，实现了邮件在传输过程中的机密性、发送者认证和消息完整性，有效地保护了电子邮件通信的安全。</p>
+<h1 id="SSL-Secure-Sockets-Layer"><a href="#SSL-Secure-Sockets-Layer" class="headerlink" title="SSL: Secure Sockets Layer"></a>SSL: Secure Sockets Layer</h1><ol>
+<li><p><strong>SSL的概述与重要性</strong> </p>
+<ul>
+<li>SSL是一种广泛部署的安全协议，几乎被所有浏览器和Web服务器所支持，在网络安全中起着至关重要的作用。例如，在进行网上购物时，我们常见的https协议就是基于SSL实现的，它确保了在客户端和服务器之间传输的数据的安全性，涉及数十亿的交易金额每年。SSL提供了机密性（确保数据不被未授权方获取）、完整性（保证数据在传输过程中未被篡改）和认证（确认通信双方的身份）等功能，其最初的目标是保障Web电子商务交易的安全，特别是对信用卡号码等敏感信息的加密，以及实现Web服务器认证和可选的客户端认证，使得用户在与新商家进行业务往来时能够以最小的麻烦确保交易安全，并且它可用于所有TCP应用，为应用提供了安全的套接字接口。</li>
+</ul>
+</li>
+<li><p><strong>SSL与TCP&#x2F;IP的关系</strong></p>
+<ul>
+<li>SSL在TCP&#x2F;IP协议栈中位于应用层和TCP层之间，为应用程序提供了应用编程接口（API）。这使得开发人员可以方便地在应用中使用SSL来增强安全性。例如，在C和Java等编程语言中，都有现成的SSL库或类可供使用，开发人员可以利用这些库来实现安全的网络通信，如安全的网页浏览、文件传输等，确保数据在应用层和传输层之间的安全传递。   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211160205.png"></li>
+</ul>
+</li>
+<li><p><strong>Toy SSL的工作流程</strong> </p>
+<ul>
+<li><p><strong>握手阶段（Handshake）</strong>：Alice和Bob使用各自的证书和私钥进行相互认证，并交换共享秘密（master secret）。例如，Alice首先建立与Bob的TCP连接，然后向Bob发送“hello”消息、自己的公钥证书以及用Bob的公钥加密的主密钥（master secret）$K_{B}^{+}(MS)&#x3D;EMS$（其中$MS$是主密钥，$EMS$是加密后的主密钥）。这个阶段的目的是确保双方的身份真实性，并建立一个安全的通信基础，后续的通信都将基于这个共享秘密进行加密和认证。 </p>
+</li>
+<li><p><strong>密钥派生阶段（Key derivation）</strong>：考虑到使用同一个主密钥进行多种加密操作存在安全风险，Alice和Bob使用共享秘密（master secret）派生一组密钥。具体来说，从主密钥派生出用于客户端到服务器数据加密的密钥$K_{c}$、用于客户端到服务器数据的消息认证码（MAC）密钥$M_{c}$、用于服务器到客户端数据加密的密钥$K_{s}$以及用于服务器到客户端数据的MAC密钥$M_{s}$。这些密钥是通过密钥派生函数（KDF）根据主密钥和可能的一些额外随机数据生成的，不同的密钥用于不同的加密和认证操作，提高了安全性。 </p>
+</li>
+<li><p><strong>数据传输阶段（Data transfer）</strong>：为了解决将数据加密成连续流可能存在的问题，如MAC放置位置和消息完整性检查的时机问题，SSL将数据分成一系列记录进行传输。每个记录都携带一个消息认证码（MAC），MAC的计算方式为$MAC &#x3D; H(m + s)$（其中$m$是消息，$s$是MAC密钥）。接收方可以在每个记录到达时对其进行处理，通过验证MAC来确保数据的完整性和真实性。同时，为了防止攻击者捕获和重放记录或重新排序记录，在MAC中加入了序列号，例如$MAC &#x3D; H(M_{x})，sequence || data$，并且为了进一步防止攻击者重放所有记录，还可以使用一次性随机数（nonce）。 </p>
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211160934.png">
+</li>
+<li><p><strong>连接关闭阶段（Connection closure）</strong>：为了防止截断攻击（如中间人攻击者伪造TCP连接关闭段（FIN），导致一方认为数据比实际少），SSL使用不同的记录类型来安全地关闭连接，例如定义类型0为数据记录，类型1为关闭记录，并且在MAC的计算中加入记录类型，即$MAC &#x3D; H(M_{x})，sequence || type || data$，确保连接关闭的安全性。 </p>
+  <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="../../../../pictures/Pasted image 20241211160952.png"></li>
+</ul>
+</li>
+<li><p><strong>Toy SSL的局限性与SSL cipher suite</strong> </p>
+<ul>
+<li>Toy SSL存在一些局限性，如未明确字段长度、未指定具体的加密协议、未考虑客户端和服务器的协商需求等。为了解决这些问题，SSL支持多种密码套件（cipher suite）。密码套件包括公共密钥算法（如RSA）、对称加密算法（如DES、3DES、RC2、RC4等）和MAC算法。在通信时，客户端会提供它支持的密码套件列表，服务器从中选择一个，双方通过协商确定使用的加密算法，这样可以允许客户端和服务器支持不同的加密算法，并在数据传输前共同选择特定的算法，以满足不同的安全需求和性能要求。</li>
+</ul>
+</li>
+<li><p><strong>Real SSL的握手过程</strong> </p>
+<ul>
+<li><strong>目的</strong>：Real SSL的握手过程有多个重要目的，包括服务器认证（让客户端确认服务器的身份）、协商（双方就加密算法达成一致）、建立密钥（生成用于后续通信的加密和MAC密钥）以及可选的客户端认证（在需要时让服务器确认客户端的身份）。 </li>
+<li><strong>具体步骤</strong>: <ul>
+<li>客户端发送它支持的算法列表以及客户端随机数（nonce）。 </li>
+<li>服务器从列表中选择算法，然后发送回选择的算法、服务器证书和服务器随机数。 </li>
+<li>客户端验证服务器证书，提取服务器的公钥，生成预主密钥（pre_master_secret），并用服务器的公钥加密后发送给服务器。 </li>
+<li>客户端和服务器独立地根据预主密钥和随机数计算加密和MAC密钥。 </li>
+<li>客户端发送所有握手消息的MAC。 </li>
+<li>服务器发送所有握手消息的MAC。最后两步通过对握手消息进行MAC计算，可以保护握手过程免受篡改，防止中间人攻击。例如，如果中间人试图删除客户端提供的较强算法，由于最后两步的MAC验证，服务器可以检测到握手消息被篡改，从而保证了协商过程的安全性。此外，使用两个随机数（分别在客户端和服务器发送的消息中）可以防止重放攻击，因为每次连接的随机数不同，导致加密密钥也不同，攻击者重放的消息将无法通过完整性检查。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>SSL部分通过一系列复杂而有序的机制，包括握手、密钥派生、数据传输和连接关闭等阶段，以及密码套件的协商，为网络通信提供了全面的安全保障，确保了数据在网络传输过程中的机密性、完整性和认证性，是保障网络安全通信的重要技术之一。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">迟然</div><div class="post-copyright__author_desc">世上的路有很多条.</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/')">CAN201-网络安全2</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=CAN201-网络安全2&amp;url=http://example.com/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/&amp;pic=https://ooo.0x0.ooo/2025/01/06/OEEwxc.jpg" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">迟然</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%AD%A6%E4%B9%A0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>学习<span class="tagsPageCount">15</span></a><a class="post-meta__box__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>计算机网络<span class="tagsPageCount">4</span></a><a class="post-meta__box__tags" href="/tags/CAN201/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>CAN201<span class="tagsPageCount">4</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://ooo.0x0.ooo/2025/01/06/OEGnZs.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A81/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGMJr.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CAN201-网络安全1</div></div></a></div><div class="next-post pull-right"><a href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A83/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGnZs.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CAN201-网络安全3</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A81/" title="CAN201-网络安全1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGMJr.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-06</div><div class="title">CAN201-网络安全1</div></div></a></div><div><a href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A83/" title="CAN201-网络安全3"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGnZs.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-06</div><div class="title">CAN201-网络安全3</div></div></a></div><div><a href="/2025/01/06/CAN201-%E9%93%BE%E8%B7%AF%E5%B1%82%202/" title="CAN201-链路层 2"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGOlM.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-06</div><div class="title">CAN201-链路层 2</div></div></a></div><div><a href="/2024/06/02/CPT102-Hash%20Table/" title="CPT102-Hash Table"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/06/02/OJH9Zr.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-06-02</div><div class="title">CPT102-Hash Table</div></div></a></div><div><a href="/2024/03/08/CPT102-Lecture%200/" title="CPT102-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/08/OyYzri.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-08</div><div class="title">CPT102-Lecture 1</div></div></a></div><div><a href="/2024/03/05/CPT103-Lecture%201/" title="CPT103-Lecture 1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/05/OyckLK.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-03-05</div><div class="title">CPT103-Lecture 1</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/02/OyJ9pK.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">一名来自<b style="color:#fff">西交利物浦大学</b>的大二学生。我将在这里分享<b style="color:#fff">课堂知识，课外遐想</b>以及<b style="color:#fff">生活方式</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">欢迎来到我的<b style="color:#fff">博客</b>，请您自由<b style="color:#fff">浏览</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about"><h1 class="author-info__name">迟然</h1><div class="author-info__desc">世上的路有很多条.</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/cheerfulchen" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/34922511" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E8%AF%81%EF%BC%88Authentication%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">认证（Authentication）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%EF%BC%88Digital-Signatures%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">数字签名（Digital Signatures）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%EF%BC%88Secure-e-mail%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">安全电子邮件（Secure e - mail）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSL-Secure-Sockets-Layer"><span class="toc-number">4.</span> <span class="toc-text">SSL: Secure Sockets Layer</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A83/" title="CAN201-网络安全3"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGnZs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAN201-网络安全3"/></a><div class="content"><a class="title" href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A83/" title="CAN201-网络安全3">CAN201-网络安全3</a><time datetime="2025-01-06T06:11:45.000Z" title="发表于 2025-01-06 14:11:45">2025-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/" title="CAN201-网络安全2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEEwxc.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAN201-网络安全2"/></a><div class="content"><a class="title" href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A82/" title="CAN201-网络安全2">CAN201-网络安全2</a><time datetime="2025-01-06T05:43:45.000Z" title="发表于 2025-01-06 13:43:45">2025-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A81/" title="CAN201-网络安全1"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGMJr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAN201-网络安全1"/></a><div class="content"><a class="title" href="/2025/01/06/CAN201-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A81/" title="CAN201-网络安全1">CAN201-网络安全1</a><time datetime="2025-01-06T04:43:45.000Z" title="发表于 2025-01-06 12:43:45">2025-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/06/CAN201-%E9%93%BE%E8%B7%AF%E5%B1%82%202/" title="CAN201-链路层 2"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGOlM.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAN201-链路层 2"/></a><div class="content"><a class="title" href="/2025/01/06/CAN201-%E9%93%BE%E8%B7%AF%E5%B1%82%202/" title="CAN201-链路层 2">CAN201-链路层 2</a><time datetime="2025-01-06T03:43:45.000Z" title="发表于 2025-01-06 11:43:45">2025-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/04/CPT205-%E5%85%89%E4%B8%8E%E6%9D%90%E8%B4%A8/" title="CPT205-光与材质"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2025/01/06/OEGoBG.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CPT205-光与材质"/></a><div class="content"><a class="title" href="/2025/01/04/CPT205-%E5%85%89%E4%B8%8E%E6%9D%90%E8%B4%A8/" title="CPT205-光与材质">CPT205-光与材质</a><time datetime="2025-01-04T12:43:45.000Z" title="发表于 2025-01-04 20:43:45">2025-01-04</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2023 - 2025 By <a class="footer-bar-link" href="/" title="迟然" target="_blank">迟然</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">2</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">个人主页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://twitter.com/Cheerful_Chen/" title="Twitter"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPdvU.png" alt="Twitter"/><span class="back-menu-item-text">Twitter</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">联系方式</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://t.me/cheerfulchen/" title="Telegram"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/03/03/OyPscY.png" alt="Telegram"/><span class="back-menu-item-text">Telegram</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8975672819&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/CAN201/" style="font-size: 0.88rem;">CAN201<sup>4</sup></a><a href="/tags/CPT102/" style="font-size: 0.88rem;">CPT102<sup>3</sup></a><a href="/tags/CPT103/" style="font-size: 0.88rem;">CPT103<sup>2</sup></a><a href="/tags/CPT205/" style="font-size: 0.88rem;">CPT205<sup>1</sup></a><a href="/tags/EEE104/" style="font-size: 0.88rem;">EEE104<sup>3</sup></a><a href="/tags/INT104/" style="font-size: 0.88rem;">INT104<sup>2</sup></a><a href="/tags/MySQL/" style="font-size: 0.88rem;">MySQL<sup>2</sup></a><a href="/tags/Python/" style="font-size: 0.88rem;">Python<sup>3</sup></a><a href="/tags/%E4%B8%8A%E7%BD%91/" style="font-size: 0.88rem;">上网<sup>1</sup></a><a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 0.88rem;">二进制<sup>3</sup></a><a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 0.88rem;">图形学<sup>1</sup></a><a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">学习<sup>15</sup></a><a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">杂谈<sup>3</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>3</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 0.88rem;">计算机网络<sup>4</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8975672819" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/my/m/music/playlist?id=8975672819&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("03/02/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2023 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 迟然 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.cbd.int/mathjax@3.2.2/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://suchen-twikoo.netlify.app/.netlify/functions/twikoo',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
