@@ -7,4 +7,4 @@
 部署：GitHub 仓库 Settings → Pages → Build and deployment → Source 选择 GitHub Actions。
 将 `feat/navigation-hub` 分支加入 `github-pages` 环境的允许部署分支，然后推送此分支，或在 Actions 的 “Deploy navigation to GitHub Pages” 中选此分支运行。
 
-所有导航内容在 `index.html`；样式在 `style.css`。当前目录不带 CNAME，避免把现有 `chiran.top` 域名指向新导航。若需要让旧 GitHub Pages 地址独立承载导航，请在仓库 Pages 设置解除原域名绑定，并保留新博客的 DNS 设置。
+所有导航内容在 `index.html`；样式在 `style.css`。按照站点所有者的选择，保留 `chiran.top` 域名绑定，并用 `CNAME` 记录此配置；新博客入口为 `https://blog.chiran.top`。
