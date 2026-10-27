@@ -1,0 +1,61 @@
+name: Deploy navigation to GitHub Pages
+
+on:
+  push:
+    branches: [feat/navigation-hub]
+    paths:
+      - 'navigation/**'
+      - '.github/workflows/navigation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: navigation-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate navigation
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Links(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.urls = []
+              def handle_starttag(self, tag, attrs):
+                  if tag == 'a':
+                      self.urls.append(dict(attrs).get('href', ''))
+          page = Path('navigation/index.html').read_text()
+          links = Links()
+          links.feed(page)
+          expected = ['blog', 'botc', 'share', 'museum', 'ohya', 'mec302', 'can302', 'game']
+          actual = [url for url in links.urls if '.chiran.top' in url]
+          assert actual == [f'https://{host}.chiran.top' for host in expected], actual
+          assert 'AI 功能目前暂不可用' in page
+          for asset in ['style.css', 'favicon.svg', '.nojekyll']:
+              assert Path('navigation', asset).is_file(), asset
+          print('All 8 destinations, blog priority, game notice and local assets verified.')
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: navigation
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy navigation
+        id: deployment
+        uses: actions/deploy-pages@v4
