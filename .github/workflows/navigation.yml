@@ -35,13 +35,15 @@ jobs:
           page = Path('navigation/index.html').read_text()
           links = Links()
           links.feed(page)
-          expected = ['blog', 'botc', 'share', 'museum', 'ohya', 'mec302', 'can302', 'game']
+          expected = ['blog', 'botc', 'ohya', 'mec302', 'can302', 'game']
           actual = [url for url in links.urls if '.chiran.top' in url]
           assert actual == [f'https://{host}.chiran.top' for host in expected], actual
           assert 'AI 功能目前暂不可用' in page
+          assert page.count('class="project-description"') == 4
+          assert '5 个站点' in page
           for asset in ['style.css', 'favicon.svg', '.nojekyll']:
               assert Path('navigation', asset).is_file(), asset
-          print('All 8 destinations, blog priority, game notice and local assets verified.')
+          print('All 6 destinations, blog priority, game notice and local assets verified.')
           PY
       - uses: actions/upload-pages-artifact@v3
         with:
